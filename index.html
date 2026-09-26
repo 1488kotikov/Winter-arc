@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WINTER ARC — 100 дней</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #07090b;
+      color: #f4f7fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 35%, #26313b 0%, #11171c 32%, #07090b 72%);
+    }
+
+    /* Снежный эффект */
+    .snow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.7;
+      background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1.5px, transparent 1.5px);
+      background-size: 90px 90px, 140px 140px, 220px 220px;
+      background-position: 10px 20px, 50px 70px, 100px 30px;
+      animation: snow 18s linear infinite;
+    }
+
+    @keyframes snow {
+      from {
+        transform: translateY(-50px);
+      }
+      to {
+        transform: translateY(100px);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .label {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 8px 15px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #b9c5cf;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: clamp(65px, 18vw, 150px);
+      line-height: 0.82;
+      letter-spacing: -7px;
+      font-weight: 800;
+      margin-bottom: 30px;
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #dce6ed 45%,
+        #7d8b96 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      max-width: 550px;
+      margin: 0 auto;
+      font-size: clamp(20px, 5vw, 30px);
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .description {
+      max-width: 500px;
+      margin: 20px auto 35px;
+      color: #9da8b1;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .date {
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #8d9aa4;
+      margin-bottom: 25px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .time-box {
+      width: 72px;
+      padding: 13px 5px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .time-number {
+      display: block;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 4px;
+      font-size: 9px;
+      color: #7f8b94;
+      letter-spacing: 1px;
+    }
+
+    .button {
+      display: inline-block;
+      width: 100%;
+      max-width: 330px;
+      padding: 18px 25px;
+      border-radius: 12px;
+      background: #f1f5f7;
+      color: #080a0c;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: white;
+      box-shadow: 0 15px 40px rgba(255,255,255,0.12);
+    }
+
+    .bottom-text {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #59636b;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        min-height: 100svh;
+      }
+
+      h1 {
+        letter-spacing: -4px;
+      }
+
+      .subtitle {
+        font-size: 21px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .time-box {
+        width: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <div class="snow"></div>
+
+    <div class="hero-content">
+
+      <div class="label">
+        WINTER ARC · SEASON 01
+      </div>
+
+      <h1>WINTER<br>ARC</h1>
+
+      <div class="subtitle">
+        100 дней.<br>
+        Ты не знаешь, что будет завтра.
+      </div>
+
+      <p class="description">
+        Каждый день ты будешь получать новое задание
+        в Telegram. Выполняй его и двигайся дальше.
+        Не пытайся узнать программу заранее.
+      </p>
+
+      <div class="date">
+        START · 01.10.2026
+      </div>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <span class="time-number" id="days">00</span>
+          <span class="time-label">ДНЕЙ</span>
+        </div>
+
+        <div class="time-box">
+          <span class="time-number" id="hours">00</span>
+          <span class="time-label">ЧАСОВ</span>
+        </div>
+
+        <div class="time-box">
+          <span class="time-number" id="minutes">00</span>
+          <span class="time-label">МИНУТ</span>
+        </div>
+
+        <div class="time-box">
+          <span class="time-number" id="seconds">00</span>
+          <span class="time-label">СЕКУНД</span>
+        </div>
+
+      </div>
+
+      <a href="#join" class="button">
+        ВСТУПИТЬ В WINTER ARC
+      </a>
+
+      <div class="bottom-text">
+        100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    const targetDate = new Date("2026-10-01T00:00:00+07:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+      );
+
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
