@@ -11,1041 +11,650 @@ content="WINTER ARC — 100 дней. Каждый день новое зада�
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    background: #070a0e;
-    color: #f4f6f8;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
+body{
+    background:#070a0e;
+    color:#f4f6f8;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-.container {
-    width: min(1100px, 92%);
-    margin: 0 auto;
+.container{
+    width:min(1100px,92%);
+    margin:auto;
 }
 
 
-/* =====================================================
-   SNOW
-===================================================== */
+/* SNOW */
 
-.snow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
+.snow{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    overflow:hidden;
 }
 
-.snowflake {
-    position: absolute;
-    top: -30px;
-    color: rgba(255,255,255,0.75);
-    font-size: 7px;
-    animation-name: snowfall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.snowflake{
+    position:absolute;
+    top:-30px;
+    color:rgba(255,255,255,.7);
+    font-size:7px;
+    animation:snowfall linear infinite;
 }
 
-.snowflake.big {
-    font-size: 11px;
-    opacity: 0.55;
+.big{
+    font-size:11px;
+    opacity:.5;
 }
 
-.snowflake.soft {
-    filter: blur(2px);
-    opacity: 0.3;
+.soft{
+    filter:blur(2px);
+    opacity:.3;
 }
 
-@keyframes snowfall {
-
-    0% {
-        transform: translate3d(0,-30px,0) rotate(0deg);
+@keyframes snowfall{
+    0%{
+        transform:translate3d(0,-30px,0) rotate(0);
     }
-
-    50% {
-        transform: translate3d(35px,50vh,0) rotate(180deg);
+    50%{
+        transform:translate3d(35px,50vh,0) rotate(180deg);
     }
-
-    100% {
-        transform: translate3d(-25px,110vh,0) rotate(360deg);
+    100%{
+        transform:translate3d(-25px,110vh,0) rotate(360deg);
     }
-
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(7,10,14,0.82);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:100;
+    background:rgba(7,10,14,.84);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.nav {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.nav{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo {
-    font-size: 18px;
-    font-weight: 900;
-    letter-spacing: 4px;
+.logo{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:4px;
 }
 
-.nav-link {
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: #aab2bc;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding: 110px 0 70px;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    top: 5%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: radial-gradient(
-        circle,
-        rgba(200,225,255,0.12),
-        transparent 65%
-    );
-
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
+.nav-link{
+    font-size:13px;
+    letter-spacing:2px;
+    color:#aab2bc;
 }
 
 
-/* =====================================================
-   BADGE
-===================================================== */
+/* HERO */
 
-.badge {
-    display: inline-block;
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding:110px 0 70px;
+}
 
-    border: 1px solid rgba(255,255,255,0.25);
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    top:5%;
+    left:50%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(200,225,255,.12),transparent 65%);
+}
 
-    border-radius: 40px;
-
-    padding: 10px 20px;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    color: #bfc7d0;
-
-    margin-bottom: 35px;
-
-    background: rgba(255,255,255,0.025);
-
-    animation: fadeUp 1s ease forwards;
+.hero-content{
+    position:relative;
+    z-index:2;
 }
 
 
-/* =====================================================
-   WINTER ARC ANIMATION
-===================================================== */
+/* BADGE */
 
-.winter-title {
-    position: relative;
+.badge{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:40px;
+    padding:10px 20px;
+    font-size:12px;
+    letter-spacing:4px;
+    color:#bfc7d0;
+    margin-bottom:35px;
+    background:rgba(255,255,255,.025);
+    animation:fadeUp 1s ease forwards;
+}
 
-    text-align: center;
 
-    line-height: 0.8;
+/* WINTER ARC */
 
-    margin: 20px 0 45px;
-
-    font-weight: 1000;
-
-    letter-spacing: -7px;
-
-    animation:
-        titleBreath 5s ease-in-out infinite,
-        titleAppear 1.5s ease forwards;
-
-    opacity: 0;
-
-    transform: translateY(30px) scale(0.96);
+.winter-title{
+    position:relative;
+    text-align:center;
+    line-height:.8;
+    margin:20px 0 45px;
+    font-weight:1000;
+    letter-spacing:-7px;
+    animation:titleAppear 1.5s ease forwards,
+              titleBreath 5s ease-in-out infinite 1.5s;
+    opacity:0;
 }
 
 .winter-word,
-.arc-word {
-
-    display: block;
-
-    position: relative;
-
-    background: linear-gradient(
+.arc-word{
+    display:block;
+    background:linear-gradient(
         110deg,
-        #ffffff 0%,
-        #ffffff 30%,
+        #fff 0%,
+        #fff 30%,
         #7f8c9b 45%,
-        #ffffff 55%,
-        #ffffff 100%
+        #fff 55%,
+        #fff 100%
     );
-
-    background-size: 250% 100%;
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    animation:
-        coldShine 6s linear infinite;
-
+    background-size:250% 100%;
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:coldShine 6s linear infinite;
 }
 
-.winter-word {
-    font-size: clamp(60px, 15vw, 155px);
+.winter-word{
+    font-size:clamp(60px,15vw,155px);
 }
 
-.arc-word {
-    font-size: clamp(60px, 15vw, 155px);
-    animation-delay: 0.25s;
+.arc-word{
+    font-size:clamp(60px,15vw,155px);
+    animation-delay:.25s;
 }
 
-
-/* свечение */
-
-.winter-title::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 75%;
-    height: 60%;
-
-    transform: translate(-50%, -50%);
-
-    background: radial-gradient(
+.winter-title::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:75%;
+    height:60%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(
         ellipse,
-        rgba(170,210,255,0.15),
+        rgba(170,210,255,.15),
         transparent 70%
     );
+    filter:blur(30px);
+    z-index:-1;
+    animation:glowPulse 4s ease-in-out infinite;
+}
 
-    filter: blur(30px);
+@keyframes coldShine{
+    0%{background-position:250% 0}
+    40%{background-position:0 0}
+    100%{background-position:0 0}
+}
 
-    z-index: -1;
+@keyframes titleBreath{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.015)}
+}
 
-    animation: glowPulse 4s ease-in-out infinite;
+@keyframes titleAppear{
+    0%{
+        opacity:0;
+        transform:translateY(35px) scale(.94);
+        filter:blur(10px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+}
 
+@keyframes glowPulse{
+    0%,100%{
+        opacity:.25;
+        transform:translate(-50%,-50%) scale(.9);
+    }
+    50%{
+        opacity:.8;
+        transform:translate(-50%,-50%) scale(1.08);
+    }
 }
 
 
-/* ледяной блик */
+/* TEXT */
 
-@keyframes coldShine {
+.hero-title{
+    font-size:clamp(25px,5vw,50px);
+    font-weight:800;
+    margin-bottom:15px;
+    animation:fadeUp 1s ease .5s forwards;
+    opacity:0;
+}
 
-    0% {
-        background-position: 250% 0;
+.hero-subtitle{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#a7afb9;
+    font-size:18px;
+    animation:fadeUp 1s ease .7s forwards;
+    opacity:0;
+}
+
+.start-date{
+    font-size:13px;
+    letter-spacing:5px;
+    color:#89929d;
+    margin-bottom:30px;
+    animation:fadeUp 1s ease .9s forwards;
+    opacity:0;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* COUNTDOWN */
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.count-box{
+    width:105px;
+    padding:15px 8px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:15px;
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(6px);
+}
+
+.count-number{
+    display:block;
+    font-size:34px;
+    font-weight:800;
+}
+
+.count-label{
+    font-size:10px;
+    letter-spacing:2px;
+    color:#858e99;
+}
+
+
+/* BUTTON */
+
+.main-button{
+    display:inline-block;
+    padding:20px 42px;
+    background:#f3f5f7;
+    color:#080b0f;
+    border-radius:16px;
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:2px;
+    transition:.25s;
+    cursor:pointer;
+    box-shadow:0 10px 40px rgba(255,255,255,.08);
+}
+
+.main-button:hover{
+    transform:translateY(-3px);
+    background:#fff;
+    box-shadow:0 15px 50px rgba(255,255,255,.16);
+}
+
+.small-note{
+    margin-top:18px;
+    font-size:12px;
+    color:#666e78;
+}
+
+
+/* SECTIONS */
+
+section{
+    padding:100px 0;
+    border-top:1px solid rgba(255,255,255,.06);
+    position:relative;
+}
+
+.section-title{
+    font-size:clamp(35px,7vw,70px);
+    font-weight:900;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.section-description{
+    color:#9ca5af;
+    max-width:700px;
+    font-size:17px;
+    margin-bottom:45px;
+}
+
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    padding:30px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:20px;
+    background:rgba(255,255,255,.025);
+    backdrop-filter:blur(6px);
+}
+
+.card-number{
+    color:#747d88;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:30px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#929ba6;
+    font-size:15px;
+}
+
+
+/* STEPS */
+
+.steps{
+    display:grid;
+    gap:15px;
+    max-width:800px;
+}
+
+.step{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    background:rgba(255,255,255,.018);
+}
+
+.step-number{
+    font-size:13px;
+    letter-spacing:2px;
+    color:#747d88;
+    min-width:40px;
+}
+
+.step h3{
+    margin-bottom:5px;
+}
+
+.step p{
+    color:#929ba6;
+}
+
+
+/* PRICE */
+
+.price-section{
+    text-align:center;
+}
+
+.price-card{
+    max-width:560px;
+    margin:auto;
+    padding:50px 30px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:28px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.015)
+    );
+}
+
+.price-label{
+    color:#858e99;
+    font-size:12px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:70px;
+    font-weight:900;
+    line-height:1;
+    margin-bottom:15px;
+}
+
+.price-description{
+    color:#949da7;
+    margin-bottom:30px;
+}
+
+.payment-note{
+    margin-top:20px;
+    font-size:12px;
+    color:#656e79;
+}
+
+
+/* FAQ */
+
+.faq{
+    max-width:800px;
+}
+
+details{
+    border-bottom:1px solid rgba(255,255,255,.1);
+    padding:20px 0;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:700;
+    font-size:17px;
+}
+
+details p{
+    color:#969fa9;
+    padding-top:15px;
+    max-width:700px;
+}
+
+
+/* LEGAL */
+
+.legal{
+    max-width:850px;
+}
+
+.legal-block{
+    margin-bottom:45px;
+}
+
+.legal-block h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.legal-block p{
+    color:#969fa9;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:60px 0 80px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer-logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.footer-links a{
+    color:#8c959f;
+    font-size:13px;
+}
+
+.copyright{
+    color:#555e68;
+    font-size:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .nav-link{
+        display:none;
     }
 
-    40% {
-        background-position: 0% 0;
+    .winter-title{
+        letter-spacing:-4px;
     }
 
-    100% {
-        background-position: 0% 0;
+    .cards{
+        grid-template-columns:1fr;
     }
 
-}
-
-
-/* дыхание */
-
-@keyframes titleBreath {
-
-    0%,100% {
-        transform: scale(1);
+    .count-box{
+        width:75px;
     }
 
-    50% {
-        transform: scale(1.015);
+    .count-number{
+        font-size:25px;
     }
 
-}
-
-
-/* появление */
-
-@keyframes titleAppear {
-
-    0% {
-        opacity: 0;
-        transform: translateY(35px) scale(0.94);
-        filter: blur(10px);
+    .hero-subtitle{
+        font-size:16px;
     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+    .price{
+        font-size:60px;
     }
 
-}
-
-
-/* свечение */
-
-@keyframes glowPulse {
-
-    0%,100% {
-        opacity: 0.25;
-        transform:
-            translate(-50%, -50%)
-            scale(0.9);
+    section{
+        padding:75px 0;
     }
 
-    50% {
-        opacity: 0.8;
-        transform:
-            translate(-50%, -50%)
-            scale(1.08);
+    .main-button{
+        width:100%;
+        padding:19px 15px;
     }
-
-}
-
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero-title {
-
-    font-size: clamp(25px,5vw,50px);
-
-    font-weight: 800;
-
-    margin-bottom: 15px;
-
-    animation:
-        fadeUp 1s ease 0.5s forwards;
-
-    opacity: 0;
-
-}
-
-.hero-subtitle {
-
-    max-width: 650px;
-
-    margin: 0 auto 30px;
-
-    color: #a7afb9;
-
-    font-size: 18px;
-
-    animation:
-        fadeUp 1s ease 0.7s forwards;
-
-    opacity: 0;
-
-}
-
-.start-date {
-
-    font-size: 13px;
-
-    letter-spacing: 5px;
-
-    color: #89929d;
-
-    margin-bottom: 30px;
-
-    animation:
-        fadeUp 1s ease 0.9s forwards;
-
-    opacity: 0;
-
-}
-
-
-/* =====================================================
-   FADE UP
-===================================================== */
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
-
-.countdown {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-bottom: 40px;
-
-    flex-wrap: wrap;
-
-}
-
-.count-box {
-
-    width: 105px;
-
-    padding: 15px 8px;
-
-    border: 1px solid rgba(255,255,255,0.13);
-
-    border-radius: 15px;
-
-    background: rgba(255,255,255,0.035);
-
-    backdrop-filter: blur(6px);
-
-}
-
-.count-number {
-
-    display: block;
-
-    font-size: 34px;
-
-    font-weight: 800;
-
-}
-
-.count-label {
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    color: #858e99;
-
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.main-button {
-
-    display: inline-block;
-
-    padding: 20px 42px;
-
-    background: #f3f5f7;
-
-    color: #080b0f;
-
-    border-radius: 16px;
-
-    font-size: 16px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    transition: 0.25s;
-
-    border: none;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 40px rgba(255,255,255,0.08);
-
-}
-
-.main-button:hover {
-
-    transform: translateY(-3px);
-
-    background: #ffffff;
-
-    box-shadow:
-        0 15px 50px rgba(255,255,255,0.16);
-
-}
-
-.small-note {
-
-    margin-top: 18px;
-
-    font-size: 12px;
-
-    color: #666e78;
-
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-section {
-
-    padding: 100px 0;
-
-    border-top:
-        1px solid rgba(255,255,255,0.06);
-
-    position: relative;
-
-}
-
-.section-title {
-
-    font-size:
-        clamp(35px,7vw,70px);
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-
-    margin-bottom: 20px;
-
-}
-
-.section-description {
-
-    color: #9ca5af;
-
-    max-width: 700px;
-
-    font-size: 17px;
-
-    margin-bottom: 45px;
-
-}
-
-
-/* =====================================================
-   CARDS
-===================================================== */
-
-.cards {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 18px;
-
-}
-
-.card {
-
-    padding: 30px;
-
-    border:
-        1px solid rgba(255,255,255,0.09);
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.025);
-
-    backdrop-filter: blur(6px);
-
-}
-
-.card-number {
-
-    color: #747d88;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 30px;
-
-}
-
-.card h3 {
-
-    font-size: 22px;
-
-    margin-bottom: 12px;
-
-}
-
-.card p {
-
-    color: #929ba6;
-
-    font-size: 15px;
-
-}
-
-
-/* =====================================================
-   HOW
-===================================================== */
-
-.steps {
-
-    display: grid;
-
-    gap: 15px;
-
-    max-width: 800px;
-
-}
-
-.step {
-
-    display: flex;
-
-    gap: 20px;
-
-    align-items: flex-start;
-
-    padding: 25px;
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,0.018);
-
-}
-
-.step-number {
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    color: #747d88;
-
-    min-width: 40px;
-
-}
-
-.step h3 {
-
-    margin-bottom: 5px;
-
-}
-
-.step p {
-
-    color: #929ba6;
-
-}
-
-
-/* =====================================================
-   PRICE
-===================================================== */
-
-.price-section {
-
-    text-align: center;
-
-}
-
-.price-card {
-
-    max-width: 560px;
-
-    margin: 0 auto;
-
-    padding: 50px 30px;
-
-    border:
-        1px solid rgba(255,255,255,0.13);
-
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.06),
-            rgba(255,255,255,0.015)
-        );
-
-    box-shadow:
-        0 20px 80px rgba(0,0,0,0.25);
-
-}
-
-.price-label {
-
-    color: #858e99;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 15px;
-
-}
-
-.price {
-
-    font-size: 70px;
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    margin-bottom: 15px;
-
-}
-
-.price-description {
-
-    color: #949da7;
-
-    margin-bottom: 30px;
-
-}
-
-.payment-note {
-
-    margin-top: 20px;
-
-    font-size: 12px;
-
-    color: #656e79;
-
-}
-
-
-/* =====================================================
-   FAQ
-===================================================== */
-
-.faq {
-
-    max-width: 800px;
-
-}
-
-details {
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.1);
-
-    padding: 20px 0;
-
-}
-
-summary {
-
-    cursor: pointer;
-
-    font-weight: 700;
-
-    font-size: 17px;
-
-}
-
-details p {
-
-    color: #969fa9;
-
-    padding-top: 15px;
-
-    max-width: 700px;
-
-}
-
-
-/* =====================================================
-   LEGAL
-===================================================== */
-
-.legal {
-
-    max-width: 850px;
-
-}
-
-.legal-block {
-
-    margin-bottom: 45px;
-
-}
-
-.legal-block h3 {
-
-    margin-bottom: 12px;
-
-    font-size: 22px;
-
-}
-
-.legal-block p {
-
-    color: #969fa9;
-
-    font-size: 14px;
-
-    margin-bottom: 10px;
-
-}
-
-.placeholder {
-
-    color: #d6d9dd !important;
-
-    background:
-        rgba(255,255,255,0.04);
-
-    padding: 12px;
-
-    border-radius: 8px;
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    padding: 60px 0 80px;
-
-    border-top:
-        1px solid rgba(255,255,255,0.07);
-
-}
-
-.footer-logo {
-
-    font-size: 20px;
-
-    font-weight: 900;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 20px;
-
-}
-
-.footer-links {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 20px;
-
-    margin-bottom: 25px;
-
-}
-
-.footer-links a {
-
-    color: #8c959f;
-
-    font-size: 13px;
-
-}
-
-.copyright {
-
-    color: #555e68;
-
-    font-size: 12px;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width:700px) {
-
-    .nav-link {
-        display: none;
-    }
-
-    .winter-title {
-        letter-spacing: -4px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .count-box {
-        width: 75px;
-    }
-
-    .count-number {
-        font-size: 25px;
-    }
-
-    .hero-subtitle {
-        font-size: 16px;
-    }
-
-    .price {
-        font-size: 60px;
-    }
-
-    section {
-        padding: 75px 0;
-    }
-
-    .main-button {
-        width: 100%;
-        padding: 19px 15px;
-    }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-     SNOW
-===================================================== -->
+<!-- SNOW -->
 
 <div class="snow">
 
-    <span class="snowflake"
-    style="left:5%;animation-duration:14s;animation-delay:0s;">•</span>
-
-    <span class="snowflake soft"
-    style="left:12%;animation-duration:19s;animation-delay:4s;">•</span>
-
-    <span class="snowflake big"
-    style="left:20%;animation-duration:17s;animation-delay:2s;">•</span>
-
-    <span class="snowflake"
-    style="left:28%;animation-duration:22s;animation-delay:7s;">•</span>
-
-    <span class="snowflake soft"
-    style="left:36%;animation-duration:16s;animation-delay:1s;">•</span>
-
-    <span class="snowflake big"
-    style="left:44%;animation-duration:20s;animation-delay:5s;">•</span>
-
-    <span class="snowflake"
-    style="left:52%;animation-duration:15s;animation-delay:8s;">•</span>
-
-    <span class="snowflake soft"
-    style="left:61%;animation-duration:23s;animation-delay:3s;">•</span>
-
-    <span class="snowflake big"
-    style="left:69%;animation-duration:18s;animation-delay:6s;">•</span>
-
-    <span class="snowflake"
-    style="left:77%;animation-duration:21s;animation-delay:0s;">•</span>
-
-    <span class="snowflake soft"
-    style="left:85%;animation-duration:16s;animation-delay:9s;">•</span>
-
-    <span class="snowflake big"
-    style="left:93%;animation-duration:19s;animation-delay:2s;">•</span>
+<span class="snowflake" style="left:5%;animation-duration:14s;">•</span>
+<span class="snowflake soft" style="left:12%;animation-duration:19s;animation-delay:4s;">•</span>
+<span class="snowflake big" style="left:20%;animation-duration:17s;animation-delay:2s;">•</span>
+<span class="snowflake" style="left:28%;animation-duration:22s;animation-delay:7s;">•</span>
+<span class="snowflake soft" style="left:36%;animation-duration:16s;animation-delay:1s;">•</span>
+<span class="snowflake big" style="left:44%;animation-duration:20s;animation-delay:5s;">•</span>
+<span class="snowflake" style="left:52%;animation-duration:15s;animation-delay:8s;">•</span>
+<span class="snowflake soft" style="left:61%;animation-duration:23s;animation-delay:3s;">•</span>
+<span class="snowflake big" style="left:69%;animation-duration:18s;animation-delay:6s;">•</span>
+<span class="snowflake" style="left:77%;animation-duration:21s;">•</span>
+<span class="snowflake soft" style="left:85%;animation-duration:16s;animation-delay:9s;">•</span>
+<span class="snowflake big" style="left:93%;animation-duration:19s;animation-delay:2s;">•</span>
 
 </div>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- HEADER -->
 
 <header>
 
-    <div class="container nav">
+<div class="container nav">
 
-        <div class="logo">
-            WINTER ARC
-        </div>
+<div class="logo">
+WINTER ARC
+</div>
 
-        <a href="#price" class="nav-link">
-            ВСТУПИТЬ
-        </a>
+<a href="#price" class="nav-link">
+ВСТУПИТЬ
+</a>
 
-    </div>
+</div>
 
 </header>
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
 
 <main>
 
@@ -1054,1025 +663,862 @@ footer {
 
 <section class="hero">
 
-    <div class="container hero-content">
+<div class="container hero-content">
+
+<div class="badge">
+WINTER ARC · SEASON 01
+</div>
+
+<h1 class="winter-title">
+
+<span class="winter-word">
+WINTER
+</span>
+
+<span class="arc-word">
+ARC
+</span>
+
+</h1>
+
+<div class="hero-title">
+100 дней.
+</div>
+
+<div class="hero-subtitle">
+
+Ты не знаешь, что будет завтра.
+
+Каждый день ты получаешь новое задание,
+выполняешь его и двигаешься дальше.
+
+</div>
+
+<div class="start-date">
+START · 01.10.2026
+</div>
 
 
-        <div class="badge">
-            WINTER ARC · SEASON 01
-        </div>
+<div class="countdown">
+
+<div class="count-box">
+<span class="count-number" id="days">00</span>
+<span class="count-label">ДНЕЙ</span>
+</div>
+
+<div class="count-box">
+<span class="count-number" id="hours">00</span>
+<span class="count-label">ЧАСОВ</span>
+</div>
+
+<div class="count-box">
+<span class="count-number" id="minutes">00</span>
+<span class="count-label">МИНУТ</span>
+</div>
+
+<div class="count-box">
+<span class="count-number" id="seconds">00</span>
+<span class="count-label">СЕКУНД</span>
+</div>
+
+</div>
 
 
-        <!-- АНИМИРОВАННЫЙ WINTER ARC -->
+<a href="#price" class="main-button">
+ВСТУПИТЬ В WINTER ARC
+</a>
 
-        <h1 class="winter-title">
+<div class="small-note">
+100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
+</div>
 
-            <span class="winter-word">
-                WINTER
-            </span>
-
-            <span class="arc-word">
-                ARC
-            </span>
-
-        </h1>
-
-
-        <div class="hero-title">
-            100 дней.
-        </div>
-
-
-        <div class="hero-subtitle">
-
-            Ты не знаешь, что будет завтра.
-            Каждый день ты получаешь новое задание,
-            выполняешь его и двигаешься дальше.
-
-        </div>
-
-
-        <div class="start-date">
-            START · 01.10.2026
-        </div>
-
-
-        <!-- COUNTDOWN -->
-
-        <div class="countdown">
-
-            <div class="count-box">
-
-                <span
-                class="count-number"
-                id="days">
-                    00
-                </span>
-
-                <span class="count-label">
-                    ДНЕЙ
-                </span>
-
-            </div>
-
-
-            <div class="count-box">
-
-                <span
-                class="count-number"
-                id="hours">
-                    00
-                </span>
-
-                <span class="count-label">
-                    ЧАСОВ
-                </span>
-
-            </div>
-
-
-            <div class="count-box">
-
-                <span
-                class="count-number"
-                id="minutes">
-                    00
-                </span>
-
-                <span class="count-label">
-                    МИНУТ
-                </span>
-
-            </div>
-
-
-            <div class="count-box">
-
-                <span
-                class="count-number"
-                id="seconds">
-                    00
-                </span>
-
-                <span class="count-label">
-                    СЕКУНД
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <a
-        href="#price"
-        class="main-button">
-
-            ВСТУПИТЬ В WINTER ARC
-
-        </a>
-
-
-        <div class="small-note">
-
-            100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+<!-- ABOUT -->
 
 <section id="about">
 
-    <div class="container">
+<div class="container">
 
-        <h2 class="section-title">
-            Это не марафон.
-        </h2>
+<h2 class="section-title">
+Это не марафон.
+</h2>
 
+<p class="section-description">
 
-        <p class="section-description">
+Winter Arc — это 100 дней
+последовательных действий.
 
-            Winter Arc — это 100 дней
-            последовательных действий.
+Ты не получаешь программу целиком.
 
-            Ты не получаешь программу целиком.
+Каждый новый день открывается только тогда,
+когда приходит его время.
 
-            Каждый новый день открывается только тогда,
-            когда приходит его время.
-
-        </p>
-
-
-        <div class="cards">
+</p>
 
 
-            <div class="card">
+<div class="cards">
 
-                <div class="card-number">
-                    01
-                </div>
+<div class="card">
 
-                <h3>
-                    НЕ ЗНАЕШЬ
-                </h3>
+<div class="card-number">01</div>
 
-                <p>
+<h3>НЕ ЗНАЕШЬ</h3>
 
-                    Ты не знаешь заранее,
-                    какое задание получишь завтра.
+<p>
+Ты не знаешь заранее,
+какое задание получишь завтра.
+</p>
 
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="card-number">
-                    02
-                </div>
+<div class="card-number">02</div>
 
-                <h3>
-                    ПОЛУЧАЕШЬ
-                </h3>
+<h3>ПОЛУЧАЕШЬ</h3>
 
-                <p>
+<p>
+Каждый день Telegram-бот
+выдаёт новое задание.
+</p>
 
-                    Каждый день Telegram-бот
-                    выдаёт новое задание.
-
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="card-number">
-                    03
-                </div>
+<div class="card-number">03</div>
 
-                <h3>
-                    ВЫПОЛНЯЕШЬ
-                </h3>
+<h3>ВЫПОЛНЯЕШЬ</h3>
 
-                <p>
+<p>
+Выполняешь сегодняшнюю задачу
+и переходишь к следующему дню.
+</p>
 
-                    Не откладываешь.
-                    Выполняешь сегодняшнюю задачу
-                    и переходишь к следующему дню.
+</div>
 
-                </p>
+</div>
 
-            </div>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     HOW
-===================================================== -->
+<!-- HOW -->
 
 <section id="how">
 
-    <div class="container">
+<div class="container">
+
+<h2 class="section-title">
+Как это работает
+</h2>
+
+<p class="section-description">
+
+Тебе не нужно изучать огромную программу
+и планировать следующие 100 дней.
+
+</p>
 
 
-        <h2 class="section-title">
-            Как это работает
-        </h2>
+<div class="steps">
 
 
-        <p class="section-description">
+<div class="step">
 
-            Всё происходит максимально просто.
+<div class="step-number">01</div>
 
-            Тебе не нужно изучать огромную программу
-            и планировать следующие 100 дней.
+<div>
+<h3>Вступаешь</h3>
 
-        </p>
+<p>
+Оплачиваешь участие
+и получаешь доступ к программе.
+</p>
+</div>
 
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    01
-                </div>
-
-                <div>
-
-                    <h3>
-                        Вступаешь
-                    </h3>
-
-                    <p>
-
-                        Оплачиваешь участие
-                        и получаешь инструкции
-                        для подключения.
-
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="step">
+<div class="step">
 
-                <div class="step-number">
-                    02
-                </div>
+<div class="step-number">02</div>
 
-                <div>
+<div>
+<h3>Подключаешь Telegram</h3>
 
-                    <h3>
-                        Подключаешь Telegram
-                    </h3>
+<p>
+После оплаты получаешь инструкцию
+для подключения к Telegram-боту.
+</p>
+</div>
 
-                    <p>
-
-                        Telegram-бот становится
-                        твоей точкой входа
-                        в Winter Arc.
-
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="step">
+<div class="step">
 
-                <div class="step-number">
-                    03
-                </div>
+<div class="step-number">03</div>
 
-                <div>
+<div>
+<h3>Получаешь задание</h3>
 
-                    <h3>
-                        Получаешь задание
-                    </h3>
+<p>
+Каждый день бот выдаёт
+новое задание.
+</p>
+</div>
 
-                    <p>
-
-                        Каждый день бот
-                        выдаёт новое задание.
-
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="step">
+<div class="step">
 
-                <div class="step-number">
-                    04
-                </div>
+<div class="step-number">04</div>
 
-                <div>
+<div>
+<h3>Выполняешь</h3>
 
-                    <h3>
-                        Выполняешь
-                    </h3>
+<p>
+Выполняешь задачу и продолжаешь
+движение на следующий день.
+</p>
+</div>
 
-                    <p>
-
-                        Выполняешь задачу
-                        и продолжаешь движение
-                        на следующий день.
-
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="step">
+<div class="step">
 
-                <div class="step-number">
-                    05
-                </div>
+<div class="step-number">05</div>
 
-                <div>
+<div>
+<h3>Доходишь до конца</h3>
 
-                    <h3>
-                        Доходишь до конца
-                    </h3>
+<p>
+Через 100 дней ты сможешь
+сравнить себя с тем человеком,
+который начал этот путь.
+</p>
+</div>
 
-                    <p>
-
-                        Через 100 дней ты сможешь
-                        сравнить себя с тем человеком,
-                        который начал этот путь.
-
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     PRICE
-===================================================== -->
+<!-- PRICE -->
 
 <section id="price" class="price-section">
 
-    <div class="container">
+<div class="container">
+
+<h2 class="section-title">
+Вступить
+</h2>
+
+<p class="section-description" style="margin-left:auto;margin-right:auto;">
+
+Один доступ.
+100 дней.
+100 заданий.
+
+</p>
 
 
-        <h2 class="section-title">
-            Вступить
-        </h2>
+<div class="price-card">
+
+<div class="price-label">
+WINTER ARC · SEASON 01
+</div>
+
+<div class="price">
+990 ₽
+</div>
+
+<div class="price-description">
+
+Полный доступ к программе
+Winter Arc на 100 дней.
+
+Доступ предоставляется
+сразу после успешной оплаты.
+
+</div>
 
 
-        <p
-        class="section-description"
-        style="margin-left:auto;margin-right:auto;">
-
-            Один доступ.
-            100 дней.
-            100 заданий.
-
-        </p>
+<a href="#payment-info" class="main-button">
+ВСТУПИТЬ · 990 ₽
+</a>
 
 
-        <div class="price-card">
+<div class="payment-note">
 
+Онлайн-оплата.
+Доступ к цифровому продукту
+через Telegram.
 
-            <div class="price-label">
+</div>
 
-                WINTER ARC · SEASON 01
+</div>
 
-            </div>
-
-
-            <div class="price">
-
-                990 ₽
-
-            </div>
-
-
-            <div class="price-description">
-
-                Полный доступ к программе
-                Winter Arc на 100 дней.
-
-            </div>
-
-
-            <!-- ПОЗЖЕ СЮДА ПОСТАВИМ ЮKASSA -->
-
-            <a
-            href="#payment"
-            class="main-button"
-            id="paymentButton">
-
-                ВСТУПИТЬ · 990 ₽
-
-            </a>
-
-
-            <div class="payment-note">
-
-                После оплаты доступ будет предоставлен
-                через Telegram-бота.
-
-            </div>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     PAYMENT
-===================================================== -->
+<!-- PAYMENT INFO -->
 
-<section id="payment">
+<section id="payment-info">
 
-    <div class="container">
+<div class="container">
 
+<h2 class="section-title">
+После оплаты
+</h2>
 
-        <h2 class="section-title">
-            После оплаты
-        </h2>
+<p class="section-description">
 
+Winter Arc является цифровым продуктом.
 
-        <p class="section-description">
+После успешной оплаты покупателю
+предоставляется доступ к программе
+и инструкция по подключению
+к Telegram-боту.
 
-            После успешной оплаты ты получишь
-            информацию о подключении к Telegram-боту
-            Winter Arc.
+Доступ предоставляется сразу после оплаты.
 
-            Именно через него будут приходить
-            ежедневные задания.
-
-        </p>
+</p>
 
 
-        <div class="card">
+<div class="card">
 
-            <h3 style="margin-bottom:15px;">
-                Важно
-            </h3>
+<h3 style="margin-bottom:15px;">
+Порядок получения
+</h3>
 
+<p>
 
-            <p style="color:#929ba6;">
+1. Покупатель оплачивает участие.
 
-                Не закрывай страницу оплаты
-                до завершения платежа.
+<br><br>
 
-                После успешной оплаты следуй
-                инструкции, которая будет
-                предоставлена на странице результата.
+2. После подтверждения оплаты
+покупатель получает инструкцию
+по подключению.
 
-            </p>
+<br><br>
 
-        </div>
+3. Покупатель подключается
+к Telegram-боту.
 
-    </div>
+<br><br>
+
+4. Бот начинает выдавать
+ежедневные задания программы.
+
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FAQ
-===================================================== -->
+<!-- FAQ -->
 
 <section id="faq">
 
-    <div class="container">
+<div class="container">
+
+<h2 class="section-title">
+FAQ
+</h2>
 
 
-        <h2 class="section-title">
-            FAQ
-        </h2>
+<div class="faq">
+
+<details>
+
+<summary>
+Что такое Winter Arc?
+</summary>
+
+<p>
+Winter Arc — программа на 100 дней,
+в рамках которой участник каждый день
+получает новое задание через Telegram.
+</p>
+
+</details>
 
 
-        <div class="faq">
+<details>
+
+<summary>
+Я буду знать задания заранее?
+</summary>
+
+<p>
+Нет. Следующее задание открывается
+только в соответствующий день.
+</p>
+
+</details>
 
 
-            <details>
+<details>
 
-                <summary>
-                    Что такое Winter Arc?
-                </summary>
+<summary>
+Где проходят задания?
+</summary>
 
-                <p>
+<p>
+Основное взаимодействие происходит
+через Telegram-бота.
+</p>
 
-                    100-дневная программа
-                    ежедневных заданий,
-                    которые участник получает
-                    через Telegram-бота.
-
-                </p>
-
-            </details>
+</details>
 
 
-            <details>
+<details>
 
-                <summary>
-                    Я буду знать задания заранее?
-                </summary>
+<summary>
+Сколько длится программа?
+</summary>
 
-                <p>
+<p>
+100 дней.
+</p>
 
-                    Нет.
-
-                    Следующее задание открывается
-                    только в соответствующий день.
-
-                </p>
-
-            </details>
+</details>
 
 
-            <details>
+<details>
 
-                <summary>
-                    Где проходят задания?
-                </summary>
+<summary>
+Сколько стоит участие?
+</summary>
 
-                <p>
+<p>
+Стоимость участия — 990 ₽.
+</p>
 
-                    Основное взаимодействие
-                    проходит через Telegram-бота.
-
-                </p>
-
-            </details>
+</details>
 
 
-            <details>
+<details>
 
-                <summary>
-                    Сколько длится программа?
-                </summary>
+<summary>
+Когда я получу доступ?
+</summary>
 
-                <p>
-                    100 дней.
-                </p>
+<p>
+Доступ к цифровому продукту
+предоставляется сразу после успешной оплаты.
+</p>
 
-            </details>
-
-
-            <details>
-
-                <summary>
-                    Сколько стоит участие?
-                </summary>
-
-                <p>
-                    Стоимость участия — 990 ₽.
-                </p>
-
-            </details>
+</details>
 
 
-            <details>
+<details>
 
-                <summary>
-                    Что будет после оплаты?
-                </summary>
+<summary>
+Как связаться по вопросам оплаты?
+</summary>
 
-                <p>
+<p>
+Email:
+timmytom8717@icloud.com
+</p>
 
-                    Ты получишь инструкции
-                    по подключению к Telegram-боту
-                    и началу программы.
+</details>
 
-                </p>
+</div>
 
-            </details>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     LEGAL
-===================================================== -->
+<!-- LEGAL -->
 
 <section id="legal">
 
-    <div class="container legal">
+<div class="container legal">
 
+<h2 class="section-title">
+Информация
+</h2>
 
-        <h2 class="section-title">
-            Информация
-        </h2>
 
+<div class="legal-block">
 
-        <!-- РЕКВИЗИТЫ -->
+<h3>
+Реквизиты продавца
+</h3>
 
-        <div class="legal-block">
+<p>
+ФИО: Мяконьких Артем Олегович
+</p>
 
+<p>
+ИНН: 381108381345
+</p>
 
-            <h3>
-                Реквизиты продавца
-            </h3>
+<p>
+Статус: плательщик налога на профессиональный доход
+(самозанятый)
+</p>
 
+<p>
+Город: Новосибирск
+</p>
 
-            <p class="placeholder">
+<p>
+Email: timmytom8717@icloud.com
+</p>
 
-                ЗДЕСЬ ВСТАВИМ ТВОИ РЕКВИЗИТЫ
+<p>
+Телефон: +7 996 437-14-46
+</p>
 
-            </p>
+</div>
 
 
-            <p>
-                Наименование: [указать]
-            </p>
+<div class="legal-block" id="offer">
 
-            <p>
-                ИНН: [указать]
-            </p>
+<h3>
+Публичная оферта
+</h3>
 
-            <p>
-                Статус: [самозанятый / ИП]
-            </p>
+<p>
 
-            <p>
-                Email: [указать]
-            </p>
+Настоящая информация определяет основные
+условия приобретения цифрового продукта
+Winter Arc.
 
-            <p>
-                Телефон: [указать]
-            </p>
+</p>
 
+<p>
 
-        </div>
+Продавец предоставляет покупателю доступ
+к цифровой программе Winter Arc,
+представляющей собой 100-дневную программу
+ежедневных заданий.
 
+</p>
 
-        <!-- ОФЕРТА -->
+<p>
 
-        <div class="legal-block" id="offer">
+Стоимость участия составляет 990 ₽.
 
+</p>
 
-            <h3>
-                Публичная оферта
-            </h3>
+<p>
 
+После успешной оплаты покупателю
+предоставляется доступ к цифровому продукту
+и инструкция по подключению к Telegram-боту.
 
-            <p>
+</p>
 
-                Условия предоставления доступа
-                к программе Winter Arc,
-                стоимость участия, порядок оплаты,
-                предоставления доступа и возврата
-                денежных средств будут опубликованы
-                в полном тексте оферты
-                перед началом продаж.
+<p>
 
-            </p>
+Оплачивая участие, покупатель подтверждает,
+что ознакомился с описанием продукта,
+стоимостью, порядком получения доступа,
+условиями оплаты и возврата.
 
+</p>
 
-            <p class="placeholder">
+</div>
 
-                ПОЛНЫЙ ТЕКСТ ОФЕРТЫ ДОБАВИМ ПОСЛЕ
-                УТОЧНЕНИЯ ТВОЕГО СТАТУСА И РЕКВИЗИТОВ.
 
-            </p>
+<div class="legal-block" id="refund">
 
+<h3>
+Возврат денежных средств
+</h3>
 
-        </div>
+<p>
 
+Вопросы, связанные с возвратом денежных средств,
+рассматриваются в соответствии с действующим
+законодательством Российской Федерации
+и условиями оферты.
 
-        <!-- ОПЛАТА -->
+</p>
 
-        <div class="legal-block">
+<p>
 
+Для обращения по вопросу возврата необходимо
+направить запрос на:
 
-            <h3>
-                Оплата
-            </h3>
+<br><br>
 
+timmytom8717@icloud.com
 
-            <p>
+</p>
 
-                Стоимость участия
-                в программе Winter Arc — 990 ₽.
+<p>
 
-            </p>
+В обращении рекомендуется указать имя,
+дату оплаты и описание причины обращения.
 
+</p>
 
-            <p>
+</div>
 
-                Оплата производится онлайн
-                через подключённый платёжный сервис.
 
-            </p>
+<div class="legal-block" id="privacy">
 
+<h3>
+Политика обработки персональных данных
+</h3>
 
-        </div>
+<p>
 
+При оформлении участия и взаимодействии
+с продавцом могут обрабатываться данные,
+необходимые для связи с покупателем,
+подтверждения оплаты и предоставления доступа
+к цифровому продукту.
 
-        <!-- ПОЛУЧЕНИЕ -->
+</p>
 
-        <div class="legal-block">
+<p>
 
+К таким данным могут относиться имя,
+номер телефона, адрес электронной почты
+и сведения, необходимые для исполнения заказа.
 
-            <h3>
-                Получение цифрового продукта
-            </h3>
+</p>
 
+<p>
 
-            <p>
+Персональные данные используются только
+в целях обработки обращения, оплаты,
+предоставления доступа к продукту
+и исполнения обязательств продавца.
 
-                После успешной оплаты участнику
-                предоставляется доступ
-                к Telegram-боту Winter Arc.
+</p>
 
-                Через Telegram-бота участник получает
-                ежедневные задания программы.
+<p>
 
-            </p>
+По вопросам обработки персональных данных
+можно обратиться по адресу:
 
+<br><br>
 
-        </div>
+timmytom8717@icloud.com
 
+</p>
 
-        <!-- ВОЗВРАТ -->
+</div>
 
-        <div class="legal-block" id="refund">
 
+<div class="legal-block">
 
-            <h3>
-                Возврат
-            </h3>
+<h3>
+Оплата
+</h3>
 
+<p>
 
-            <p>
+Стоимость участия в Winter Arc —
+990 ₽.
 
-                Условия и порядок возврата
-                денежных средств определяются
-                публичной офертой.
+</p>
 
-            </p>
+<p>
 
+Оплата производится онлайн
+через подключённый платёжный сервис.
 
-            <p class="placeholder">
+</p>
 
-                ПОЛНЫЕ УСЛОВИЯ ВОЗВРАТА
-                ДОБАВИМ В ОФЕРТУ.
+</div>
 
-            </p>
 
+<div class="legal-block">
 
-        </div>
+<h3>
+Получение цифрового продукта
+</h3>
 
+<p>
 
-        <!-- ПЕРСОНАЛЬНЫЕ ДАННЫЕ -->
+Winter Arc является цифровым продуктом.
 
-        <div class="legal-block" id="privacy">
+После успешной оплаты покупатель получает
+инструкцию по подключению к Telegram-боту.
 
+Доступ предоставляется сразу после оплаты.
 
-            <h3>
-                Обработка персональных данных
-            </h3>
+</p>
 
+</div>
 
-            <p>
 
-                Информация об обработке персональных
-                данных пользователей будет размещена
-                в отдельном документе до начала
-                приёма оплат.
+<div class="legal-block">
 
-            </p>
+<h3>
+Контакты
+</h3>
 
+<p>
+Email: timmytom8717@icloud.com
+</p>
 
-            <p class="placeholder">
+<p>
+Телефон: +7 996 437-14-46
+</p>
 
-                ПОЛИТИКА ОБРАБОТКИ
-                ПЕРСОНАЛЬНЫХ ДАННЫХ
-                БУДЕТ ДОБАВЛЕНА.
+<p>
+Город: Новосибирск
+</p>
 
-            </p>
+</div>
 
-
-        </div>
-
-
-    </div>
+</div>
 
 </section>
-
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div class="container">
+<div class="container">
+
+<div class="footer-logo">
+WINTER ARC
+</div>
 
 
-        <div class="footer-logo">
-            WINTER ARC
-        </div>
+<div class="footer-links">
+
+<a href="#about">
+О программе
+</a>
+
+<a href="#how">
+Как работает
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+<a href="#offer">
+Оферта
+</a>
+
+<a href="#privacy">
+Персональные данные
+</a>
+
+<a href="#refund">
+Возврат
+</a>
+
+<a href="#legal">
+Реквизиты
+</a>
+
+</div>
 
 
-        <div class="footer-links">
+<div class="copyright">
 
-            <a href="#about">
-                О программе
-            </a>
+© 2026 Winter Arc. Все права защищены.
 
-            <a href="#how">
-                Как работает
-            </a>
+</div>
 
-            <a href="#faq">
-                FAQ
-            </a>
-
-            <a href="#offer">
-                Оферта
-            </a>
-
-            <a href="#privacy">
-                Персональные данные
-            </a>
-
-            <a href="#refund">
-                Возврат
-            </a>
-
-        </div>
-
-
-        <div class="copyright">
-
-            © 2026 Winter Arc.
-            Все права защищены.
-
-        </div>
-
-
-    </div>
+</div>
 
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
+/* COUNTDOWN */
 
 const targetDate =
-    new Date("2026-10-01T00:00:00+07:00").getTime();
+new Date("2026-10-01T00:00:00+07:00").getTime();
 
-
-function updateCountdown() {
-
+function updateCountdown(){
 
     const now =
-        new Date().getTime();
-
+    new Date().getTime();
 
     const difference =
-        targetDate - now;
+    targetDate - now;
 
+    if(difference <= 0){
 
-    if (difference <= 0) {
-
-        document.getElementById("days").textContent = "00";
-
-        document.getElementById("hours").textContent = "00";
-
-        document.getElementById("minutes").textContent = "00";
-
-        document.getElementById("seconds").textContent = "00";
+        document.getElementById("days").textContent="00";
+        document.getElementById("hours").textContent="00";
+        document.getElementById("minutes").textContent="00";
+        document.getElementById("seconds").textContent="00";
 
         return;
-
     }
 
-
     const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
+    Math.floor(
+        difference/(1000*60*60*24)
+    );
 
     const hours =
-        Math.floor(
-            (difference /
-            (1000 * 60 * 60)) % 24
-        );
-
+    Math.floor(
+        (difference/(1000*60*60))%24
+    );
 
     const minutes =
-        Math.floor(
-            (difference /
-            (1000 * 60)) % 60
-        );
-
+    Math.floor(
+        (difference/(1000*60))%60
+    );
 
     const seconds =
-        Math.floor(
-            (difference /
-            1000) % 60
-        );
-
+    Math.floor(
+        (difference/1000)%60
+    );
 
     document.getElementById("days").textContent =
-        String(days).padStart(2,"0");
-
+    String(days).padStart(2,"0");
 
     document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
-
+    String(hours).padStart(2,"0");
 
     document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
-
+    String(minutes).padStart(2,"0");
 
     document.getElementById("seconds").textContent =
-        String(seconds).padStart(2,"0");
-
+    String(seconds).padStart(2,"0");
 }
-
 
 updateCountdown();
 
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-
-/* =====================================================
-   PAYMENT BUTTON
-===================================================== */
-
-document
-    .getElementById("paymentButton")
-    .addEventListener(
-        "click",
-        function(event) {
-
-            event.preventDefault();
-
-            document
-                .getElementById("payment")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-
-        }
-    );
-
+setInterval(updateCountdown,1000);
 
 </script>
-
 
 </body>
 </html>
