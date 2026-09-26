@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>WINTER ARC — 100 дней</title>
+  <meta name="description" content="100 дней. 100 заданий. Один Winter Arc. Каждый день новое задание в Telegram.">
 
   <style>
     * {
@@ -13,191 +14,623 @@
       padding: 0;
     }
 
+    :root {
+      --bg: #06080a;
+      --bg2: #0d1115;
+      --text: #f4f7fa;
+      --muted: #89949d;
+      --muted2: #5d6870;
+      --line: rgba(255,255,255,.11);
+      --card: rgba(255,255,255,.045);
+      --white: #f1f5f7;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      background: #07090b;
-      color: #f4f7fa;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
       overflow-x: hidden;
     }
 
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 22px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 35%, #26313b 0%, #11171c 32%, #07090b 72%);
+    a {
+      color: inherit;
     }
 
-    /* Снежный эффект */
+    /* =========================
+       SNOW
+    ========================= */
+
     .snow {
-      position: absolute;
+      position: fixed;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
-      opacity: 0.7;
+      opacity: .55;
       background-image:
         radial-gradient(circle, white 1px, transparent 1px),
         radial-gradient(circle, white 1px, transparent 1px),
         radial-gradient(circle, white 1.5px, transparent 1.5px);
-      background-size: 90px 90px, 140px 140px, 220px 220px;
-      background-position: 10px 20px, 50px 70px, 100px 30px;
-      animation: snow 18s linear infinite;
+      background-size:
+        90px 90px,
+        150px 150px,
+        240px 240px;
+      background-position:
+        10px 20px,
+        60px 80px,
+        120px 30px;
+      animation: snowfall 20s linear infinite;
     }
 
-    @keyframes snow {
+    @keyframes snowfall {
       from {
-        transform: translateY(-50px);
+        transform: translateY(-80px);
       }
+
       to {
-        transform: translateY(100px);
+        transform: translateY(120px);
       }
     }
 
-    .hero-content {
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 700px;
-      text-align: center;
+      z-index: 1;
     }
 
-    .label {
+    .container {
+      width: min(100% - 40px, 900px);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
       display: inline-block;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 100px;
-      padding: 8px 15px;
-      font-size: 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: #aab5bd;
+      font-size: 10px;
       letter-spacing: 3px;
-      color: #b9c5cf;
-      margin-bottom: 25px;
       text-transform: uppercase;
+      background: rgba(255,255,255,.025);
       backdrop-filter: blur(10px);
     }
 
-    h1 {
-      font-size: clamp(65px, 18vw, 150px);
-      line-height: 0.82;
-      letter-spacing: -7px;
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 9vw, 64px);
+      line-height: .95;
+      letter-spacing: -2px;
       font-weight: 800;
-      margin-bottom: 30px;
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #dce6ed 45%,
-        #7d8b96 100%
-      );
+      margin: 22px 0;
+    }
+
+    .section-text {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 650px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 58px;
+      width: 100%;
+      max-width: 360px;
+      padding: 17px 24px;
+      border-radius: 13px;
+      background: var(--white);
+      color: #07090b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      transition: .25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 50px rgba(255,255,255,.12);
+    }
+
+    .button.dark {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px 50px;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 25%,
+          #28343e 0%,
+          #131a20 28%,
+          #080b0e 63%,
+          #06080a 100%
+        );
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .hero h1 {
+      margin: 32px 0;
+      font-size: clamp(65px, 19vw, 160px);
+      line-height: .78;
+      letter-spacing: -8px;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #e8eef2 38%,
+          #87939c 100%
+        );
+
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .subtitle {
-      max-width: 550px;
-      margin: 0 auto;
-      font-size: clamp(20px, 5vw, 30px);
-      line-height: 1.2;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+    .hero-subtitle {
+      font-size: clamp(23px, 6vw, 36px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -.8px;
     }
 
-    .description {
-      max-width: 500px;
-      margin: 20px auto 35px;
-      color: #9da8b1;
+    .hero-description {
+      max-width: 580px;
+      margin: 25px auto 30px;
+      color: #9ca7af;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    .date {
-      font-size: 13px;
+    .start-date {
+      color: #8b969f;
+      font-size: 11px;
       letter-spacing: 4px;
-      color: #8d9aa4;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
 
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 35px;
+      gap: 8px;
+      margin: 0 auto 32px;
     }
 
     .time-box {
       width: 72px;
-      padding: 13px 5px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
+      padding: 13px 4px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.035);
+      backdrop-filter: blur(12px);
     }
 
     .time-number {
       display: block;
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .time-label {
       display: block;
       margin-top: 4px;
-      font-size: 9px;
-      color: #7f8b94;
-      letter-spacing: 1px;
-    }
-
-    .button {
-      display: inline-block;
-      width: 100%;
-      max-width: 330px;
-      padding: 18px 25px;
-      border-radius: 12px;
-      background: #f1f5f7;
-      color: #080a0c;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 800;
+      color: #737f88;
+      font-size: 8px;
       letter-spacing: 1.5px;
-      transition: 0.25s;
     }
 
-    .button:hover {
-      transform: translateY(-3px);
-      background: white;
-      box-shadow: 0 15px 40px rgba(255,255,255,0.12);
+    .hero-bottom {
+      margin-top: 22px;
+      color: #4f5961;
+      font-size: 10px;
+      letter-spacing: 2px;
     }
 
-    .bottom-text {
-      margin-top: 20px;
+    /* =========================
+       MANIFEST
+    ========================= */
+
+    .manifest {
+      background:
+        linear-gradient(
+          180deg,
+          #06080a 0%,
+          #0a0e12 50%,
+          #06080a 100%
+        );
+    }
+
+    .manifest-box {
+      margin-top: 45px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .manifest-line {
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .manifest-line:last-child {
+      border-bottom: none;
+    }
+
+    .manifest-number {
+      color: #5c6871;
+      font-size: 12px;
+      letter-spacing: 2px;
+      min-width: 30px;
+    }
+
+    .manifest-line strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .manifest-line p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    /* =========================
+       HOW
+    ========================= */
+
+    .how {
+      background: #090c0f;
+    }
+
+    .steps {
+      margin-top: 45px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 25px;
+      background: var(--card);
+    }
+
+    .step-number {
+      color: #66727b;
       font-size: 11px;
-      color: #59636b;
-      letter-spacing: 1px;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
     }
+
+    .step h3 {
+      font-size: 22px;
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* =========================
+       100 DAYS
+    ========================= */
+
+    .days {
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          #202a32 0%,
+          #0c1115 38%,
+          #06080a 75%
+        );
+    }
+
+    .days-number {
+      font-size: clamp(100px, 27vw, 230px);
+      line-height: .8;
+      font-weight: 900;
+      letter-spacing: -12px;
+      margin: 40px 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #65727b
+        );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .days-quote {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: clamp(21px, 5vw, 30px);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    /* =========================
+       UNKNOWN
+    ========================= */
+
+    .unknown {
+      background: #080b0e;
+    }
+
+    .unknown-card {
+      margin-top: 40px;
+      padding: 35px 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.06),
+          rgba(255,255,255,.015)
+        );
+    }
+
+    .blurred {
+      color: #76828b;
+      font-size: 15px;
+      letter-spacing: 2px;
+      filter: blur(4px);
+      user-select: none;
+      margin-bottom: 25px;
+    }
+
+    .unknown-card h3 {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .unknown-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* =========================
+       RESULT
+    ========================= */
+
+    .result-grid {
+      margin-top: 40px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-item {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .check {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: #e8edf0;
+      color: #080a0c;
+      font-weight: 900;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .result-item span {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* =========================
+       PRICE
+    ========================= */
+
+    .join {
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          #26313a 0%,
+          #0d1216 35%,
+          #06080a 75%
+        );
+    }
+
+    .price-card {
+      max-width: 470px;
+      margin: 45px auto 0;
+      padding: 35px 25px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+      backdrop-filter: blur(15px);
+    }
+
+    .price-label {
+      color: #7d8992;
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-bottom: 13px;
+    }
+
+    .price {
+      font-size: 62px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      margin-bottom: 10px;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .price-card .button {
+      max-width: none;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      border-top: 1px solid var(--line);
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: #79858e;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      padding-top: 15px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 650px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 45px 20px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: #4e5961;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 500px) {
+
+      .container {
+        width: min(100% - 32px, 900px);
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
       .hero {
-        min-height: 100svh;
+        padding-top: 55px;
       }
 
-      h1 {
-        letter-spacing: -4px;
+      .hero h1 {
+        letter-spacing: -5px;
+        font-size: 20vw;
       }
 
-      .subtitle {
-        font-size: 21px;
-      }
-
-      .description {
+      .hero-description {
         font-size: 14px;
       }
 
       .time-box {
         width: 65px;
+      }
+
+      .time-number {
+        font-size: 22px;
+      }
+
+      .days-number {
+        letter-spacing: -7px;
+      }
+
+      .price {
+        font-size: 55px;
       }
     }
   </style>
@@ -205,30 +638,36 @@
 
 <body>
 
-  <section class="hero">
+  <div class="snow"></div>
 
-    <div class="snow"></div>
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
 
     <div class="hero-content">
 
-      <div class="label">
+      <div class="eyebrow">
         WINTER ARC · SEASON 01
       </div>
 
-      <h1>WINTER<br>ARC</h1>
+      <h1>
+        WINTER<br>ARC
+      </h1>
 
-      <div class="subtitle">
+      <div class="hero-subtitle">
         100 дней.<br>
         Ты не знаешь, что будет завтра.
       </div>
 
-      <p class="description">
-        Каждый день ты будешь получать новое задание
-        в Telegram. Выполняй его и двигайся дальше.
-        Не пытайся узнать программу заранее.
+      <p class="hero-description">
+        Каждый день ты получаешь новое задание в Telegram.
+        Ты не увидишь программу заранее.
+        Тебе доступен только сегодняшний день.
       </p>
 
-      <div class="date">
+      <div class="start-date">
         START · 01.10.2026
       </div>
 
@@ -260,7 +699,7 @@
         ВСТУПИТЬ В WINTER ARC
       </a>
 
-      <div class="bottom-text">
+      <div class="hero-bottom">
         100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
       </div>
 
@@ -268,34 +707,462 @@
 
   </section>
 
+
+  <!-- =========================
+       MANIFEST
+  ========================== -->
+
+  <section class="section manifest">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        THE IDEA
+      </div>
+
+      <h2 class="section-title">
+        ТЕБЕ НЕ НУЖЕН<br>
+        ЕЩЁ ОДИН<br>
+        ПЛАН.
+      </h2>
+
+      <p class="section-text">
+        Ты уже знаешь, что нужно делать.
+        Проблема обычно не в информации.
+        Проблема в том, чтобы делать это каждый день,
+        даже когда не хочется.
+      </p>
+
+      <div class="manifest-box">
+
+        <div class="manifest-line">
+          <div class="manifest-number">01</div>
+
+          <div>
+            <strong>Не будет программы на 100 дней</strong>
+            <p>
+              Ты не узнаешь, какое задание получишь завтра.
+            </p>
+          </div>
+        </div>
+
+        <div class="manifest-line">
+          <div class="manifest-number">02</div>
+
+          <div>
+            <strong>Не будет идеального момента</strong>
+            <p>
+              День начинается с выполнения сегодняшнего задания.
+            </p>
+          </div>
+        </div>
+
+        <div class="manifest-line">
+          <div class="manifest-number">03</div>
+
+          <div>
+            <strong>Не будет возможности спрятаться</strong>
+            <p>
+              Каждый новый день начинается только после предыдущего.
+            </p>
+          </div>
+        </div>
+
+        <div class="manifest-line">
+          <div class="manifest-number">04</div>
+
+          <div>
+            <strong>Будет 100 дней</strong>
+            <p>
+              И 100 возможностей сделать то,
+              что ты обычно откладываешь.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HOW IT WORKS
+  ========================== -->
+
+  <section class="section how">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        HOW IT WORKS
+      </div>
+
+      <h2 class="section-title">
+        ВСЁ<br>
+        ПРОСТО.
+      </h2>
+
+      <p class="section-text">
+        Тебе понадобится только Telegram и готовность
+        выполнять то, что появится на экране.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">STEP 01</div>
+          <h3>Получаешь задание</h3>
+          <p>
+            Каждый день бот присылает тебе новое задание.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">STEP 02</div>
+          <h3>Выполняешь</h3>
+          <p>
+            Не нужно ждать мотивации.
+            Просто выполняешь сегодняшний шаг.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">STEP 03</div>
+          <h3>Отмечаешь результат</h3>
+          <p>
+            Отправляешь результат боту
+            и закрываешь сегодняшний день.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">STEP 04</div>
+          <h3>Возвращаешься завтра</h3>
+          <p>
+            Следующее задание появится,
+            когда придёт его время.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       100 DAYS
+  ========================== -->
+
+  <section class="section days">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        THE ARC
+      </div>
+
+      <div class="days-number">
+        100
+      </div>
+
+      <div class="days-quote">
+        Сто дней маленьких решений
+        могут привести тебя туда,
+        куда ты не смог прийти
+        за последние несколько лет.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       UNKNOWN TASKS
+  ========================== -->
+
+  <section class="section unknown">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        YOU DON'T KNOW
+      </div>
+
+      <h2 class="section-title">
+        В ЭТОМ<br>
+        И СМЫСЛ.
+      </h2>
+
+      <p class="section-text">
+        Мы специально не показываем список заданий.
+        Если ты заранее узнаешь весь путь,
+        ты начнёшь выбирать только удобные задания.
+      </p>
+
+      <div class="unknown-card">
+
+        <div class="blurred">
+          ████████████████████████
+        </div>
+
+        <h3>
+          Завтра ты узнаешь.
+        </h3>
+
+        <p>
+          Возможно, задание займёт пять минут.
+          Возможно — весь вечер.
+          Возможно, оно заставит тебя выйти
+          из привычного сценария.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       RESULT
+  ========================== -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        AFTER 100 DAYS
+      </div>
+
+      <h2 class="section-title">
+        В КОНЦЕ<br>
+        ОСТАНЕТСЯ<br>
+        РЕЗУЛЬТАТ.
+      </h2>
+
+      <p class="section-text">
+        Winter Arc не обещает превратить тебя
+        в другого человека за одну ночь.
+        Идея в другом — каждый день делать
+        одно действие, которое двигает тебя вперёд.
+      </p>
+
+      <div class="result-grid">
+
+        <div class="result-item">
+          <div class="check">✓</div>
+          <span>100 выполненных дней</span>
+        </div>
+
+        <div class="result-item">
+          <div class="check">✓</div>
+          <span>100 действий вместо обещаний</span>
+        </div>
+
+        <div class="result-item">
+          <div class="check">✓</div>
+          <span>История собственного прогресса</span>
+        </div>
+
+        <div class="result-item">
+          <div class="check">✓</div>
+          <span>Новая система ежедневных действий</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       JOIN
+  ========================== -->
+
+  <section class="section join" id="join">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        SEASON 01
+      </div>
+
+      <h2 class="section-title">
+        ГОТОВ<br>
+        НАЧАТЬ?
+      </h2>
+
+      <p class="section-text" style="margin-left:auto;margin-right:auto;">
+        1 октября начинается первый Winter Arc.
+        Место в сезоне даёт доступ к ежедневным заданиям
+        через Telegram-бота.
+      </p>
+
+      <div class="price-card">
+
+        <div class="price-label">
+          УЧАСТИЕ
+        </div>
+
+        <!-- ПОЗЖЕ ЗАМЕНИМ -->
+        <div class="price">
+          990 ₽
+        </div>
+
+        <div class="price-note">
+          Доступ ко всем 100 дням.
+        </div>
+
+        <!-- ПОЗЖЕ СЮДА ПОСТАВИМ ССЫЛКУ НА ОПЛАТУ -->
+        <a href="#" class="button" onclick="return false;">
+          ВСТУПИТЬ
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FAQ
+  ========================== -->
+
+  <section class="section faq">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        FAQ
+      </div>
+
+      <h2 class="section-title">
+        ВОПРОСЫ.
+      </h2>
+
+      <details>
+        <summary>
+          Что мне понадобится?
+        </summary>
+
+        <p>
+          Только Telegram, телефон и готовность
+          выполнять ежедневные задания.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Я узнаю все задания заранее?
+        </summary>
+
+        <p>
+          Нет. В этом одна из главных особенностей Winter Arc.
+          Ты получаешь только текущее задание.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Сколько времени занимает одно задание?
+        </summary>
+
+        <p>
+          Задания будут разными. Некоторые займут несколько минут,
+          другие потребуют больше времени.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Что будет, если я пропущу день?
+        </summary>
+
+        <p>
+          Механика пропусков будет определена
+          правилами первого сезона.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Когда начинается Winter Arc?
+        </summary>
+
+        <p>
+          Первый сезон начинается 1 октября 2026 года.
+        </p>
+      </details>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+    WINTER ARC · SEASON 01 · 2026
+  </footer>
+
+
+  <!-- =========================
+       COUNTDOWN SCRIPT
+  ========================== -->
+
   <script>
-    const targetDate = new Date("2026-10-01T00:00:00+07:00").getTime();
+
+    const targetDate =
+      new Date("2026-10-01T00:00:00+07:00").getTime();
 
     function updateCountdown() {
+
       const now = new Date().getTime();
+
       const distance = targetDate - now;
 
       if (distance <= 0) {
+
         document.getElementById("days").textContent = "00";
         document.getElementById("hours").textContent = "00";
         document.getElementById("minutes").textContent = "00";
         document.getElementById("seconds").textContent = "00";
+
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
-      const seconds = Math.floor(
-        (distance % (1000 * 60)) /
-        1000
-      );
+      const days =
+        Math.floor(
+          distance / (1000 * 60 * 60 * 24)
+        );
+
+      const hours =
+        Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
+
+      const minutes =
+        Math.floor(
+          (distance % (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+      const seconds =
+        Math.floor(
+          (distance % (1000 * 60)) /
+          1000
+        );
 
       document.getElementById("days").textContent =
         String(days).padStart(2, "0");
@@ -311,7 +1178,9 @@
     }
 
     updateCountdown();
+
     setInterval(updateCountdown, 1000);
+
   </script>
 
 </body>
