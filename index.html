@@ -76,9 +76,11 @@ a{
   0%{
     transform:translateY(-20px) translateX(0);
   }
+
   50%{
     transform:translateY(50vh) translateX(30px);
   }
+
   100%{
     transform:translateY(110vh) translateX(-20px);
   }
@@ -163,7 +165,7 @@ header{
   animation:fadeUp 1s .2s forwards;
 }
 
-/* ================= WINTER ARC ANIMATION ================= */
+/* ================= TITLE ================= */
 
 .hero h1{
   font-size:clamp(65px,14vw,170px);
@@ -176,17 +178,20 @@ header{
 
 .hero h1 span{
   display:block;
+
   background:linear-gradient(
     180deg,
     #fff 0%,
     #fff 40%,
     #747c88 100%
   );
+
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
   opacity:0;
   transform:translateY(80px);
+
   animation:titleReveal 1.2s cubic-bezier(.16,1,.3,1) forwards;
 }
 
@@ -228,6 +233,11 @@ header{
 }
 
 @keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
   to{
     opacity:1;
     transform:translateY(0);
@@ -272,23 +282,32 @@ header{
 .main-button{
   display:inline-block;
   padding:20px 42px;
+
   background:#f3f5f7;
   color:#080b0f;
+
   border-radius:16px;
+
   font-size:16px;
   font-weight:900;
   letter-spacing:2px;
+
   transition:.25s;
+
   border:none;
   cursor:pointer;
+
   opacity:0;
   animation:fadeUp 1s 1.45s forwards;
 }
 
 .main-button:hover{
   transform:translateY(-4px) scale(1.02);
+
   background:#fff;
-  box-shadow:0 15px 50px rgba(255,255,255,.12);
+
+  box-shadow:
+    0 15px 50px rgba(255,255,255,.12);
 }
 
 .small-note{
@@ -328,15 +347,21 @@ section{
 
 .card{
   padding:30px;
+
   border:1px solid rgba(255,255,255,.09);
+
   border-radius:20px;
+
   background:rgba(255,255,255,.025);
+
   transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
-  border-color:rgba(255,255,255,.2);
+
+  border-color:
+    rgba(255,255,255,.2);
 }
 
 .card-number{
@@ -368,14 +393,20 @@ section{
   display:flex;
   gap:20px;
   align-items:flex-start;
+
   padding:25px;
+
   border:1px solid rgba(255,255,255,.08);
+
   border-radius:18px;
+
   transition:.3s;
 }
 
 .step:hover{
-  border-color:rgba(255,255,255,.2);
+  border-color:
+    rgba(255,255,255,.2);
+
   transform:translateX(5px);
 }
 
@@ -403,14 +434,19 @@ section{
 .price-card{
   max-width:560px;
   margin:auto;
+
   padding:50px 30px;
+
   border:1px solid rgba(255,255,255,.13);
+
   border-radius:28px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.015)
-  );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.015)
+    );
 }
 
 .price-label{
@@ -445,7 +481,9 @@ section{
 }
 
 details{
-  border-bottom:1px solid rgba(255,255,255,.1);
+  border-bottom:
+    1px solid rgba(255,255,255,.1);
+
   padding:20px 0;
 }
 
@@ -491,7 +529,9 @@ details p{
 
 footer{
   padding:60px 0 80px;
-  border-top:1px solid rgba(255,255,255,.07);
+
+  border-top:
+    1px solid rgba(255,255,255,.07);
 }
 
 .footer-logo{
@@ -564,8 +604,10 @@ footer{
 
 <body>
 
-<!-- SNOW -->
+<!-- ================= SNOW ================= -->
+
 <div class="snow">
+
   <span></span>
   <span></span>
   <span></span>
@@ -578,11 +620,14 @@ footer{
   <span></span>
   <span></span>
   <span></span>
+
 </div>
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
 
 <header>
+
   <div class="container nav">
 
     <div class="logo">
@@ -594,12 +639,14 @@ footer{
     </a>
 
   </div>
+
 </header>
 
 
 <main>
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -609,52 +656,106 @@ footer{
   WINTER ARC · SEASON 01
 </div>
 
+
 <h1>
+
   <span>WINTER</span>
   <span>ARC</span>
+
 </h1>
+
 
 <div class="hero-title">
   100 дней.
 </div>
 
+
 <div class="hero-subtitle">
+
   Ты не знаешь, что будет завтра.
   Каждый день ты получаешь новое задание,
   выполняешь его и двигаешься дальше.
+
 </div>
+
 
 <div class="start-date">
   START · 01.10.2026
 </div>
 
+
+<!-- COUNTDOWN -->
+
 <div class="countdown">
 
-<div class="count-box">
-<span class="count-number" id="days">00</span>
-<span class="count-label">ДНЕЙ</span>
+  <div class="count-box">
+
+    <span
+      class="count-number"
+      id="days"
+    >00</span>
+
+    <span class="count-label">
+      ДНЕЙ
+    </span>
+
+  </div>
+
+
+  <div class="count-box">
+
+    <span
+      class="count-number"
+      id="hours"
+    >00</span>
+
+    <span class="count-label">
+      ЧАСОВ
+    </span>
+
+  </div>
+
+
+  <div class="count-box">
+
+    <span
+      class="count-number"
+      id="minutes"
+    >00</span>
+
+    <span class="count-label">
+      МИНУТ
+    </span>
+
+  </div>
+
+
+  <div class="count-box">
+
+    <span
+      class="count-number"
+      id="seconds"
+    >00</span>
+
+    <span class="count-label">
+      СЕКУНД
+    </span>
+
+  </div>
+
 </div>
 
-<div class="count-box">
-<span class="count-number" id="hours">00</span>
-<span class="count-label">ЧАСОВ</span>
-</div>
 
-<div class="count-box">
-<span class="count-number" id="minutes">00</span>
-<span class="count-label">МИНУТ</span>
-</div>
+<!-- ВАЖНО:
+     ЭТА КНОПКА СРАЗУ ВЕДЕТ НА YOOKASSA -->
 
-<div class="count-box">
-<span class="count-number" id="seconds">00</span>
-<span class="count-label">СЕКУНД</span>
-</div>
-
-</div>
-
-<a href="#price" class="main-button">
+<a
+  href="https://yookassa.ru/my/i/arpN9Lmn-90f/l"
+  class="main-button"
+>
   ВСТУПИТЬ В WINTER ARC
 </a>
+
 
 <div class="small-note">
   100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
@@ -665,7 +766,7 @@ footer{
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
@@ -675,42 +776,80 @@ footer{
   Это не марафон.
 </h2>
 
+
 <p class="section-description">
+
   Winter Arc — это 100 дней последовательных действий.
   Ты не получаешь программу целиком.
   Каждый новый день открывается только тогда,
   когда приходит его время.
+
 </p>
+
 
 <div class="cards">
 
-<div class="card">
-<div class="card-number">01</div>
-<h3>НЕ ЗНАЕШЬ</h3>
-<p>
-Ты не знаешь заранее,
-какое задание получишь завтра.
-</p>
-</div>
 
 <div class="card">
-<div class="card-number">02</div>
-<h3>ПОЛУЧАЕШЬ</h3>
-<p>
-Каждый день Telegram-бот
-выдаёт новое задание.
-</p>
+
+<div class="card-number">
+  01
 </div>
 
-<div class="card">
-<div class="card-number">03</div>
-<h3>ВЫПОЛНЯЕШЬ</h3>
+<h3>
+  НЕ ЗНАЕШЬ
+</h3>
+
 <p>
-Не откладываешь.
-Выполняешь сегодняшнюю задачу
-и переходишь к следующему дню.
+
+  Ты не знаешь заранее,
+  какое задание получишь завтра.
+
 </p>
+
 </div>
+
+
+<div class="card">
+
+<div class="card-number">
+  02
+</div>
+
+<h3>
+  ПОЛУЧАЕШЬ
+</h3>
+
+<p>
+
+  Каждый день Telegram-бот
+  выдаёт новое задание.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">
+  03
+</div>
+
+<h3>
+  ВЫПОЛНЯЕШЬ
+</h3>
+
+<p>
+
+  Не откладываешь.
+  Выполняешь сегодняшнюю задачу
+  и переходишь к следующему дню.
+
+</p>
+
+</div>
+
 
 </div>
 
@@ -719,79 +858,139 @@ footer{
 </section>
 
 
-<!-- HOW -->
+<!-- ================= HOW ================= -->
 
 <section id="how">
 
 <div class="container">
 
 <h2 class="section-title">
-Как это работает
+  Как это работает
 </h2>
 
+
 <p class="section-description">
-Всё происходит максимально просто.
-Тебе не нужно изучать огромную программу
-и планировать следующие 100 дней.
+
+  Всё происходит максимально просто.
+  Тебе не нужно изучать огромную программу
+  и планировать следующие 100 дней.
+
 </p>
+
 
 <div class="steps">
 
-<div class="step">
-<div class="step-number">01</div>
-<div>
-<h3>Вступаешь</h3>
-<p>
-Оплачиваешь участие и получаешь
-инструкции для подключения.
-</p>
-</div>
-</div>
 
 <div class="step">
-<div class="step-number">02</div>
-<div>
-<h3>Подключаешь Telegram</h3>
-<p>
-Telegram-бот становится твоей
-точкой входа в Winter Arc.
-</p>
-</div>
+
+<div class="step-number">
+  01
 </div>
 
-<div class="step">
-<div class="step-number">03</div>
 <div>
-<h3>Получаешь задание</h3>
+
+<h3>
+  Вступаешь
+</h3>
+
 <p>
-Каждый день бот выдаёт новое
-задание.
+  Оплачиваешь участие
+  и получаешь доступ.
 </p>
-</div>
+
 </div>
 
-<div class="step">
-<div class="step-number">04</div>
-<div>
-<h3>Выполняешь</h3>
-<p>
-Выполняешь задачу и продолжаешь
-движение на следующий день.
-</p>
-</div>
 </div>
 
+
 <div class="step">
-<div class="step-number">05</div>
+
+<div class="step-number">
+  02
+</div>
+
 <div>
-<h3>Доходишь до конца</h3>
+
+<h3>
+  Подключаешь Telegram
+</h3>
+
 <p>
-Через 100 дней ты сможешь сравнить
-себя с тем человеком, который
-начал этот путь.
+  После оплаты переходишь
+  в Telegram и вступаешь в канал.
 </p>
+
 </div>
+
 </div>
+
+
+<div class="step">
+
+<div class="step-number">
+  03
+</div>
+
+<div>
+
+<h3>
+  Получаешь задание
+</h3>
+
+<p>
+  Каждый день появляется
+  новое задание.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+  04
+</div>
+
+<div>
+
+<h3>
+  Выполняешь
+</h3>
+
+<p>
+  Выполняешь задачу и продолжаешь
+  движение на следующий день.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+  05
+</div>
+
+<div>
+
+<h3>
+  Доходишь до конца
+</h3>
+
+<p>
+  Через 100 дней ты сможешь сравнить
+  себя с тем человеком, который
+  начал этот путь.
+</p>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -800,84 +999,71 @@ Telegram-бот становится твоей
 </section>
 
 
-<!-- PRICE -->
+<!-- ================= PRICE ================= -->
 
-<section id="price" class="price-section">
+<section
+  id="price"
+  class="price-section"
+>
 
 <div class="container">
 
+
 <h2 class="section-title">
-Вступить
+  Вступить
 </h2>
 
-<p class="section-description" style="margin-left:auto;margin-right:auto;">
-Один доступ.
-100 дней.
-100 заданий.
+
+<p
+  class="section-description"
+  style="margin-left:auto;margin-right:auto;"
+>
+
+  Один доступ.
+  100 дней.
+  100 заданий.
+
 </p>
+
 
 <div class="price-card">
 
+
 <div class="price-label">
-WINTER ARC · SEASON 01
+  WINTER ARC · SEASON 01
 </div>
+
 
 <div class="price">
-990 ₽
+  990 ₽
 </div>
+
 
 <div class="price-description">
-Полный доступ к программе
-Winter Arc на 100 дней.
+
+  Полный доступ к программе
+  Winter Arc на 100 дней.
+
 </div>
+
+
+<!-- ГЛАВНАЯ КНОПКА ОПЛАТЫ -->
 
 <a
-href="#payment"
-class="main-button"
-id="paymentButton"
+  href="https://yookassa.ru/my/i/arpN9Lmn-90f/l"
+  class="main-button"
 >
-ВСТУПИТЬ · 990 ₽
+  ВСТУПИТЬ · 990 ₽
 </a>
 
+
 <div class="payment-note">
-После оплаты доступ будет предоставлен
-через Telegram-бота.
-</div>
+
+  После успешной оплаты
+  ты получишь доступ к Winter Arc.
 
 </div>
 
-</div>
-
-</section>
-
-
-<!-- PAYMENT -->
-
-<section id="payment">
-
-<div class="container">
-
-<h2 class="section-title">
-После оплаты
-</h2>
-
-<p class="section-description">
-После успешной оплаты ты получишь информацию
-о подключении к Telegram-боту Winter Arc.
-Именно через него будут приходить ежедневные задания.
-</p>
-
-<div class="card">
-
-<h3 style="margin-bottom:15px;">
-Важно
-</h3>
-
-<p style="color:#9299a3;">
-Не закрывай страницу оплаты до завершения платежа.
-После успешной оплаты следуй инструкции,
-которая будет предоставлена на странице результата.
-</p>
 
 </div>
 
@@ -886,63 +1072,112 @@ id="paymentButton"
 </section>
 
 
-<!-- FAQ -->
+<!-- ================= FAQ ================= -->
 
 <section id="faq">
 
 <div class="container">
 
+
 <h2 class="section-title">
-FAQ
+  FAQ
 </h2>
+
 
 <div class="faq">
 
-<details>
-<summary>Что такое Winter Arc?</summary>
-<p>
-100-дневная программа ежедневных заданий,
-которые участник получает через Telegram-бота.
-</p>
-</details>
 
 <details>
-<summary>Я буду знать задания заранее?</summary>
+
+<summary>
+  Что такое Winter Arc?
+</summary>
+
 <p>
-Нет. Следующее задание открывается
-только в соответствующий день.
+
+  100-дневная программа ежедневных заданий,
+  которые участник получает через Telegram.
+
 </p>
+
 </details>
 
-<details>
-<summary>Где проходят задания?</summary>
-<p>
-Основное взаимодействие проходит
-через Telegram-бота.
-</p>
-</details>
 
 <details>
-<summary>Сколько длится программа?</summary>
+
+<summary>
+  Я буду знать задания заранее?
+</summary>
+
 <p>
-100 дней.
+
+  Нет.
+  Следующее задание открывается
+  только в соответствующий день.
+
 </p>
+
 </details>
 
-<details>
-<summary>Сколько стоит участие?</summary>
-<p>
-Стоимость участия — 990 ₽.
-</p>
-</details>
 
 <details>
-<summary>Что будет после оплаты?</summary>
+
+<summary>
+  Где проходят задания?
+</summary>
+
 <p>
-Ты получишь инструкции по подключению
-к Telegram-боту и началу программы.
+
+  Основное взаимодействие проходит
+  через Telegram.
+
 </p>
+
 </details>
+
+
+<details>
+
+<summary>
+  Сколько длится программа?
+</summary>
+
+<p>
+  100 дней.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+  Сколько стоит участие?
+</summary>
+
+<p>
+  Стоимость участия — 990 ₽.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+  Что будет после оплаты?
+</summary>
+
+<p>
+
+  После успешной оплаты участник
+  получает инструкции для подключения
+  к Winter Arc.
+
+</p>
+
+</details>
+
 
 </div>
 
@@ -951,62 +1186,80 @@ FAQ
 </section>
 
 
-<!-- LEGAL -->
+<!-- ================= LEGAL ================= -->
 
 <section id="legal">
 
 <div class="container legal">
 
+
 <h2 class="section-title">
-Информация
+  Информация
 </h2>
 
 
 <div class="legal-block">
 
+
 <h3>
-Реквизиты продавца
+  Реквизиты продавца
 </h3>
+
 
 <p class="legal-note">
-Реквизиты продавца должны быть указаны
-в соответствии с фактическим статусом продавца.
+
+  Реквизиты продавца должны быть указаны
+  в соответствии с фактическим статусом продавца.
+
 </p>
 
-<p>
-Наименование: ______________________________
-</p>
 
 <p>
-ИНН: ______________________________
+  Наименование: ______________________________
 </p>
 
-<p>
-Статус: ______________________________
-</p>
 
 <p>
-Email: ______________________________
+  ИНН: ______________________________
 </p>
 
+
 <p>
-Телефон: ______________________________
+  Статус: ______________________________
 </p>
+
+
+<p>
+  Email: ______________________________
+</p>
+
+
+<p>
+  Телефон: ______________________________
+</p>
+
 
 </div>
 
 
-<div class="legal-block" id="offer">
+<div
+  class="legal-block"
+  id="offer"
+>
+
 
 <h3>
-Публичная оферта
+  Публичная оферта
 </h3>
 
+
 <p>
-Условия предоставления доступа к программе
-Winter Arc, стоимость участия, порядок оплаты,
-предоставления доступа и возврата денежных средств
-определяются публичной офертой продавца.
+
+  Условия предоставления доступа к программе
+  Winter Arc, стоимость участия, порядок оплаты,
+  предоставления доступа и возврата денежных средств
+  определяются публичной офертой продавца.
+
 </p>
 
 </div>
@@ -1014,18 +1267,25 @@ Winter Arc, стоимость участия, порядок оплаты,
 
 <div class="legal-block">
 
+
 <h3>
-Оплата
+  Оплата
 </h3>
 
-<p>
-Стоимость участия в программе Winter Arc —
-990 ₽.
-</p>
 
 <p>
-Оплата производится онлайн через подключённый
-платёжный сервис.
+
+  Стоимость участия в программе Winter Arc —
+  990 ₽.
+
+</p>
+
+
+<p>
+
+  Оплата производится онлайн
+  через платёжный сервис YooKassa.
+
 </p>
 
 </div>
@@ -1033,47 +1293,64 @@ Winter Arc, стоимость участия, порядок оплаты,
 
 <div class="legal-block">
 
+
 <h3>
-Получение цифрового продукта
+  Получение цифрового продукта
 </h3>
 
+
 <p>
-После успешной оплаты участнику предоставляется
-доступ к Telegram-боту Winter Arc.
-Через Telegram-бота участник получает
-ежедневные задания программы.
+
+  После успешной оплаты участнику предоставляется
+  доступ к Winter Arc через Telegram.
+
 </p>
 
 </div>
 
 
-<div class="legal-block" id="refund">
+<div
+  class="legal-block"
+  id="refund"
+>
+
 
 <h3>
-Возврат
+  Возврат
 </h3>
 
+
 <p>
-Условия и порядок возврата денежных средств
-определяются публичной офертой.
+
+  Условия и порядок возврата денежных средств
+  определяются публичной офертой.
+
 </p>
 
 </div>
 
 
-<div class="legal-block" id="privacy">
+<div
+  class="legal-block"
+  id="privacy"
+>
+
 
 <h3>
-Обработка персональных данных
+  Обработка персональных данных
 </h3>
 
+
 <p>
-Обработка персональных данных осуществляется
-в соответствии с опубликованной политикой
-обработки персональных данных.
+
+  Обработка персональных данных осуществляется
+  в соответствии с опубликованной политикой
+  обработки персональных данных.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -1082,35 +1359,61 @@ Winter Arc, стоимость участия, порядок оплаты,
 </main>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
 <div class="container">
 
+
 <div class="footer-logo">
-WINTER ARC
+  WINTER ARC
 </div>
+
 
 <div class="footer-links">
 
-<a href="#about">О программе</a>
 
-<a href="#how">Как работает</a>
+<a href="#about">
+  О программе
+</a>
 
-<a href="#faq">FAQ</a>
 
-<a href="#offer">Оферта</a>
+<a href="#how">
+  Как работает
+</a>
 
-<a href="#privacy">Персональные данные</a>
 
-<a href="#refund">Возврат</a>
+<a href="#faq">
+  FAQ
+</a>
+
+
+<a href="#offer">
+  Оферта
+</a>
+
+
+<a href="#privacy">
+  Персональные данные
+</a>
+
+
+<a href="#refund">
+  Возврат
+</a>
+
 
 </div>
+
 
 <div class="copyright">
-© 2026 Winter Arc. Все права защищены.
+
+  © 2026 Winter Arc.
+  Все права защищены.
+
 </div>
+
 
 </div>
 
@@ -1122,78 +1425,93 @@ WINTER ARC
 /* ================= COUNTDOWN ================= */
 
 const targetDate =
-new Date("2026-10-01T00:00:00+07:00").getTime();
+new Date(
+  "2026-10-01T00:00:00+07:00"
+).getTime();
+
 
 function updateCountdown(){
 
-const now = new Date().getTime();
+  const now =
+    new Date().getTime();
 
-const difference = targetDate - now;
+  const difference =
+    targetDate - now;
 
-if(difference <= 0){
 
-document.getElementById("days").textContent="00";
-document.getElementById("hours").textContent="00";
-document.getElementById("minutes").textContent="00";
-document.getElementById("seconds").textContent="00";
+  if(difference <= 0){
 
-return;
+    document.getElementById("days")
+      .textContent = "00";
+
+    document.getElementById("hours")
+      .textContent = "00";
+
+    document.getElementById("minutes")
+      .textContent = "00";
+
+    document.getElementById("seconds")
+      .textContent = "00";
+
+    return;
+  }
+
+
+  const days =
+    Math.floor(
+      difference /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  const hours =
+    Math.floor(
+      (difference /
+      (1000 * 60 * 60)) % 24
+    );
+
+
+  const minutes =
+    Math.floor(
+      (difference /
+      (1000 * 60)) % 60
+    );
+
+
+  const seconds =
+    Math.floor(
+      (difference / 1000) % 60
+    );
+
+
+  document.getElementById("days")
+    .textContent =
+    String(days).padStart(2,"0");
+
+
+  document.getElementById("hours")
+    .textContent =
+    String(hours).padStart(2,"0");
+
+
+  document.getElementById("minutes")
+    .textContent =
+    String(minutes).padStart(2,"0");
+
+
+  document.getElementById("seconds")
+    .textContent =
+    String(seconds).padStart(2,"0");
+
 }
 
-const days =
-Math.floor(
-difference/(1000*60*60*24)
-);
-
-const hours =
-Math.floor(
-(difference/(1000*60*60))%24
-);
-
-const minutes =
-Math.floor(
-(difference/(1000*60))%60
-);
-
-const seconds =
-Math.floor(
-(difference/1000)%60
-);
-
-document.getElementById("days").textContent =
-String(days).padStart(2,"0");
-
-document.getElementById("hours").textContent =
-String(hours).padStart(2,"0");
-
-document.getElementById("minutes").textContent =
-String(minutes).padStart(2,"0");
-
-document.getElementById("seconds").textContent =
-String(seconds).padStart(2,"0");
-
-}
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
-
-
-/* ================= PAYMENT ================= */
-
-document
-.getElementById("paymentButton")
-.addEventListener("click",function(event){
-
-event.preventDefault();
-
-document
-.getElementById("payment")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-});
+setInterval(
+  updateCountdown,
+  1000
+);
 
 </script>
 
