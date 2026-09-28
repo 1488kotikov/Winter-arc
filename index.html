@@ -289,6 +289,12 @@ header{
   box-shadow:0 15px 50px rgba(255,255,255,.12);
 }
 
+.main-button:disabled{
+  opacity:.65;
+  cursor:wait;
+  transform:none;
+}
+
 .small-note{
   margin-top:18px;
   font-size:12px;
@@ -551,8 +557,6 @@ footer{
 
 <body>
 
-<!-- SNOW -->
-
 <div class="snow">
   <span></span>
   <span></span>
@@ -563,9 +567,6 @@ footer{
   <span></span>
   <span></span>
 </div>
-
-
-<!-- HEADER -->
 
 <header>
 
@@ -583,9 +584,7 @@ WINTER ARC
 
 </header>
 
-
 <main>
-
 
 <!-- HERO -->
 
@@ -616,7 +615,6 @@ WINTER ARC · SEASON 01
 START · 01.10.2026
 </div>
 
-
 <div class="countdown">
 
 <div class="count-box">
@@ -641,16 +639,12 @@ START · 01.10.2026
 
 </div>
 
-
-<!-- ОПЛАТА -->
-
-<a
-href="https://yookassa.ru/my/i/arpN9Lmn-90f/l"
-class="main-button"
+<button
+type="button"
+class="main-button payment-button"
 >
 ВСТУПИТЬ В WINTER ARC
-</a>
-
+</button>
 
 <div class="small-note">
 100 DAYS · ONE CHALLENGE · ONE VERSION OF YOU
@@ -659,7 +653,6 @@ class="main-button"
 </div>
 
 </section>
-
 
 <!-- ABOUT -->
 
@@ -678,7 +671,6 @@ Winter Arc — это 100 дней последовательных действ
 когда приходит его время.
 </p>
 
-
 <div class="cards">
 
 <div class="card">
@@ -695,7 +687,6 @@ Winter Arc — это 100 дней последовательных действ
 
 </div>
 
-
 <div class="card">
 <div class="card-number">02</div>
 
@@ -709,7 +700,6 @@ Winter Arc — это 100 дней последовательных действ
 </p>
 
 </div>
-
 
 <div class="card">
 <div class="card-number">03</div>
@@ -732,7 +722,6 @@ Winter Arc — это 100 дней последовательных действ
 
 </section>
 
-
 <!-- HOW -->
 
 <section id="how">
@@ -748,7 +737,6 @@ Winter Arc — это 100 дней последовательных действ
 Тебе не нужно изучать огромную программу
 и планировать следующие 100 дней.
 </p>
-
 
 <div class="steps">
 
@@ -772,7 +760,6 @@ Winter Arc — это 100 дней последовательных действ
 
 </div>
 
-
 <div class="step">
 
 <div class="step-number">
@@ -794,7 +781,6 @@ Winter Arc — это 100 дней последовательных действ
 
 </div>
 
-
 <div class="step">
 
 <div class="step-number">
@@ -814,7 +800,6 @@ Winter Arc — это 100 дней последовательных действ
 </div>
 
 </div>
-
 
 <div class="step">
 
@@ -836,7 +821,6 @@ Winter Arc — это 100 дней последовательных действ
 </div>
 
 </div>
-
 
 <div class="step">
 
@@ -866,7 +850,6 @@ Winter Arc — это 100 дней последовательных действ
 
 </section>
 
-
 <!-- PRICE -->
 
 <section id="price" class="price-section">
@@ -886,7 +869,6 @@ style="margin-left:auto;margin-right:auto;"
 100 заданий.
 </p>
 
-
 <div class="price-card">
 
 <div class="price-label">
@@ -902,18 +884,16 @@ WINTER ARC · SEASON 01
 Winter Arc на 100 дней.
 </div>
 
-
-<a
-href="https://yookassa.ru/my/i/arpN9Lmn-90f/l"
-class="main-button"
+<button
+type="button"
+class="main-button payment-button"
 >
 ВСТУПИТЬ · 990 ₽
-</a>
-
+</button>
 
 <div class="payment-note">
-После успешной оплаты следуй инструкции
-на странице результата.
+После успешной оплаты ты автоматически
+перейдёшь на страницу с доступом в Telegram.
 </div>
 
 </div>
@@ -921,7 +901,6 @@ class="main-button"
 </div>
 
 </section>
-
 
 <!-- FAQ -->
 
@@ -933,12 +912,9 @@ class="main-button"
 FAQ
 </h2>
 
-
 <div class="faq">
 
-
 <details>
-
 <summary>
 Что такое Winter Arc?
 </summary>
@@ -947,12 +923,9 @@ FAQ
 100-дневная программа ежедневных заданий,
 которые участник получает через Telegram.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Я буду знать задания заранее?
 </summary>
@@ -962,12 +935,9 @@ FAQ
 Следующее задание открывается
 только в соответствующий день.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Где проходят задания?
 </summary>
@@ -976,12 +946,9 @@ FAQ
 Основное взаимодействие проходит
 через Telegram.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Сколько длится программа?
 </summary>
@@ -989,12 +956,9 @@ FAQ
 <p>
 100 дней.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Сколько стоит участие?
 </summary>
@@ -1002,26 +966,21 @@ FAQ
 <p>
 Стоимость участия — 990 ₽.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Что будет после оплаты?
 </summary>
 
 <p>
-После успешной оплаты участник получает
-инструкции для подключения к Winter Arc.
+После успешной оплаты ты перейдёшь
+на страницу, где будет ссылка
+на закрытый Telegram-канал Winter Arc.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Можно ли присоединиться после старта?
 </summary>
@@ -1032,12 +991,9 @@ FAQ
 Условия позднего подключения
 определяются организатором.
 </p>
-
 </details>
 
-
 <details>
-
 <summary>
 Нужно ли выполнять задания каждый день?
 </summary>
@@ -1046,7 +1002,6 @@ FAQ
 Формат Winter Arc рассчитан на ежедневное
 выполнение заданий в течение 100 дней.
 </p>
-
 </details>
 
 </div>
@@ -1054,7 +1009,6 @@ FAQ
 </div>
 
 </section>
-
 
 <!-- LEGAL -->
 
@@ -1065,7 +1019,6 @@ FAQ
 <h2 class="section-title">
 Информация
 </h2>
-
 
 <div class="legal-block">
 
@@ -1099,7 +1052,6 @@ Email: timmytom8717@icloud.com
 
 </div>
 
-
 <div class="legal-block" id="offer">
 
 <h3>
@@ -1114,7 +1066,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 </p>
 
 </div>
-
 
 <div class="legal-block">
 
@@ -1134,7 +1085,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 
 </div>
 
-
 <div class="legal-block">
 
 <h3>
@@ -1148,7 +1098,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 
 </div>
 
-
 <div class="legal-block" id="refund">
 
 <h3>
@@ -1161,7 +1110,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 </p>
 
 </div>
-
 
 <div class="legal-block" id="privacy">
 
@@ -1183,9 +1131,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 
 </main>
 
-
-<!-- FOOTER -->
-
 <footer>
 
 <div class="container">
@@ -1193,7 +1138,6 @@ Winter Arc, стоимость участия, порядок оплаты,
 <div class="footer-logo">
 WINTER ARC
 </div>
-
 
 <div class="footer-links">
 
@@ -1223,7 +1167,6 @@ FAQ
 
 </div>
 
-
 <div class="copyright">
 © 2026 Winter Arc. Все права защищены.
 </div>
@@ -1232,7 +1175,6 @@ FAQ
 
 </footer>
 
-
 <script>
 
 /* ================= COUNTDOWN ================= */
@@ -1240,12 +1182,10 @@ FAQ
 const targetDate =
 new Date("2026-10-01T00:00:00+07:00").getTime();
 
-
 function updateCountdown(){
 
 const difference =
 targetDate - Date.now();
-
 
 if(difference <= 0){
 
@@ -1255,33 +1195,27 @@ document.getElementById("minutes").textContent="00";
 document.getElementById("seconds").textContent="00";
 
 return;
-
 }
-
 
 const days =
 Math.floor(
 difference / (1000*60*60*24)
 );
 
-
 const hours =
 Math.floor(
 difference / (1000*60*60) % 24
 );
-
 
 const minutes =
 Math.floor(
 difference / (1000*60) % 60
 );
 
-
 const seconds =
 Math.floor(
 difference / 1000 % 60
 );
-
 
 document.getElementById("days").textContent =
 String(days).padStart(2,"0");
@@ -1297,10 +1231,70 @@ String(seconds).padStart(2,"0");
 
 }
 
-
 updateCountdown();
 
 setInterval(updateCountdown,1000);
+
+
+/* ================= PAYMENT ================= */
+
+const paymentButtons =
+document.querySelectorAll(".payment-button");
+
+paymentButtons.forEach((button) => {
+
+button.addEventListener("click", async () => {
+
+const originalText =
+button.textContent;
+
+button.disabled = true;
+
+button.textContent =
+"ПОДГОТОВКА ОПЛАТЫ...";
+
+try{
+
+const response = await fetch(
+"https://winter-arc-payment.1488kotikov.workers.dev",
+{
+method:"POST"
+}
+);
+
+const data =
+await response.json();
+
+if(
+!response.ok ||
+!data.confirmation_url
+){
+throw new Error(
+"Не удалось создать платёж"
+);
+}
+
+window.location.href =
+data.confirmation_url;
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"Не удалось открыть оплату. Попробуйте ещё раз."
+);
+
+button.disabled = false;
+
+button.textContent =
+originalText;
+
+}
+
+});
+
+});
 
 </script>
 
