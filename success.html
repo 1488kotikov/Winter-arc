@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WINTER ARC — Оплата прошла</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #05070b;
+    color: #f5f7fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* SNOW */
+
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.flake {
+    position: absolute;
+    top: -20px;
+    color: white;
+    opacity: .65;
+    animation: fall linear infinite;
+    text-shadow: 0 0 8px rgba(255,255,255,.7);
+}
+
+@keyframes fall {
+    from {
+        transform: translate3d(0, -30px, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(var(--drift), 110vh, 0) rotate(360deg);
+    }
+}
+
+/* MAIN */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.box {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    padding: 55px 35px;
+    border: 1px solid #252d38;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(120,150,200,.13),
+            transparent 45%
+        ),
+        #080b10;
+    box-shadow: 0 30px 100px rgba(0,0,0,.45);
+
+    animation: appear 1s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.logo {
+    color: #7f8b9b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+}
+
+.check {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #687789;
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    animation: checkAppear 1s .3s ease both;
+}
+
+@keyframes checkAppear {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(42px, 9vw, 76px);
+    line-height: .9;
+    letter-spacing: -4px;
+    font-weight: 950;
+}
+
+.subtitle {
+    max-width: 500px;
+    margin: 0 auto 35px;
+
+    color: #9ca7b6;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info {
+    border-top: 1px solid #202833;
+    border-bottom: 1px solid #202833;
+
+    padding: 20px 10px;
+    margin-bottom: 30px;
+
+    color: #737f8f;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.join {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 260px;
+    padding: 18px 30px;
+
+    background: white;
+    color: #05070b;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+
+    transition: .2s;
+}
+
+.join:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,255,255,.12);
+}
+
+.note {
+    margin-top: 20px;
+    color: #596474;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .box {
+        padding: 45px 22px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .join {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="snow" id="snow"></div>
+
+<main class="page">
+
+    <div class="box">
+
+        <div class="logo">
+            WINTER ARC / 2026
+        </div>
+
+        <div class="check">
+            ✓
+        </div>
+
+        <h1>
+            ОПЛАТА<br>
+            ПРИНЯТА.
+        </h1>
+
+        <p class="subtitle">
+            Добро пожаловать в WINTER ARC.
+            Твой путь на 100 дней начинается сейчас.
+        </p>
+
+        <div class="info">
+            Нажми кнопку ниже, чтобы войти
+            в закрытый Telegram-канал Winter Arc.
+        </div>
+
+        <a
+            class="join"
+            href="https://t.me/+Ij6rJ_stiblhZjVi"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ВОЙТИ В WINTER ARC →
+        </a>
+
+        <div class="note">
+            Сохрани доступ к Telegram — здесь будет проходить программа.
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* SNOW */
+
+(function () {
+
+    const snow = document.getElementById("snow");
+
+    const count = window.innerWidth < 600 ? 28 : 55;
+
+    for (let i = 0; i < count; i++) {
+
+        const flake = document.createElement("div");
+
+        flake.className = "flake";
+
+        flake.textContent =
+            Math.random() > 0.5 ? "•" : "❄";
+
+        flake.style.left =
+            Math.random() * 100 + "vw";
+
+        flake.style.fontSize =
+            (5 + Math.random() * 10) + "px";
+
+        flake.style.animationDuration =
+            (7 + Math.random() * 10) + "s";
+
+        flake.style.animationDelay =
+            (-Math.random() * 15) + "s";
+
+        flake.style.setProperty(
+            "--drift",
+            (-80 + Math.random() * 160) + "px"
+        );
+
+        snow.appendChild(flake);
+    }
+
+})();
+
+</script>
+
+</body>
+</html>
