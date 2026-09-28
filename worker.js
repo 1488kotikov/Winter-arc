@@ -2,12 +2,12 @@ export default {
   async fetch(request, env) {
 
     const corsHeaders = {
-      "Access-Control-Allow-Origin": "https://зимняяарка.рф",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    // CORS
+    // CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -38,9 +38,8 @@ export default {
             },
 
             body: JSON.stringify({
-
               amount: {
-                value: env.PRICE,
+                value: "990.00",
                 currency: "RUB",
               },
 
@@ -52,12 +51,12 @@ export default {
                   "https://зимняяарка.рф/success.html",
               },
 
-              description: "Участие в WINTER ARC",
+              description:
+                "Участие в WINTER ARC — 100 дней",
 
               metadata: {
                 product: "winter_arc_2026",
               },
-
             }),
           }
         );
