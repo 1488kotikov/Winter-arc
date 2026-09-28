@@ -1,14 +1,13 @@
 export default {
   async fetch(request, env) {
 
-    // Разрешаем запросы с сайта
     const corsHeaders = {
       "Access-Control-Allow-Origin": "https://зимняяарка.рф",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    // Обработка CORS
+    // CORS
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -18,7 +17,6 @@ export default {
 
     // Создание платежа
     if (request.method === "POST") {
-
       try {
 
         const idempotenceKey = crypto.randomUUID();
@@ -31,14 +29,16 @@ export default {
             headers: {
               "Authorization":
                 "Basic " +
-                btoa(`${env.YOOKASSA_SHOP_ID}:${env.YOOKASSA_SECRET_KEY}`),
+                btoa(
+                  `${env.YOOKASSA_SHOP_ID}:${env.YOOKASSA_SECRET_KEY}`
+                ),
 
               "Content-Type": "application/json",
-
               "Idempotence-Key": idempotenceKey,
             },
 
             body: JSON.stringify({
+
               amount: {
                 value: env.PRICE,
                 currency: "RUB",
@@ -52,12 +52,12 @@ export default {
                   "https://зимняяарка.рф/success.html",
               },
 
-              description:
-                "Участие в WINTER ARC",
+              description: "Участие в WINTER ARC",
 
               metadata: {
                 product: "winter_arc_2026",
               },
+
             }),
           }
         );
@@ -111,9 +111,12 @@ export default {
       }
     }
 
-    return new Response("Winter Arc Payment Worker", {
-      status: 200,
-      headers: corsHeaders,
-    });
+    return new Response(
+      "Winter Arc Payment Worker",
+      {
+        status: 200,
+        headers: corsHeaders,
+      }
+    );
   },
 };
